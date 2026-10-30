@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 
 from compare.metriport_map import parse_hcc_map
+from compare.run import load_icd_years
 from crosswalk.build import build_rows
 from crosswalk.cms import read_cms_csv
 from crosswalk.sources import CMS_2025, CMS_2026, METRIPORT_HCC_MAP, fetch
@@ -30,3 +31,8 @@ def crosswalk(cms26):
 def hcc_map():
     path, _ = fetch(METRIPORT_HCC_MAP)
     return parse_hcc_map(Path(path).read_text(encoding="utf-8"))
+
+
+@pytest.fixture(scope="session")
+def icd_years():
+    return load_icd_years()

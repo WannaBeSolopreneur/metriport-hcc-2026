@@ -1,21 +1,26 @@
 """Compare Metriport's public hcc-map.ts with the CMS 2026 crosswalk.
 
-Writes reports/compare.md, reports/missing_v28_codes.csv and reports/hcc_number_overlap.csv.
+Writes reports/compare.md, reports/compare.json, reports/missing_v28_codes.csv,
+reports/split_parent_codes.csv and reports/hcc_number_overlap.csv.
 Every number comes from the pinned inputs, so two runs give byte-identical output.
 """
 
 from __future__ import annotations
 
 import csv
+import json
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 
+from compare.icd10cm import CodeYear, read_code_year
 from compare.metriport_map import MapEntry, parse_hcc_map
 from crosswalk.build import build_rows
 from crosswalk.cms import read_cms_csv
 from crosswalk.sources import (
     CMS_2025,
     CMS_2026,
+    ICD10CM_2025,
+    ICD10CM_2026,
     METRIPORT_COMMIT,
     METRIPORT_HCC_MAP,
     METRIPORT_HCC_MAP_PATH,
@@ -36,6 +41,8 @@ class Result:
     v24_mismatch: list[tuple[str, tuple, tuple]]
     v24_only_in_map: int
     overlap: list[dict]
+    stale: list[dict]
+    retired_still_mapped: list[str]
 
 
 def load_inputs():
@@ -45,7 +52,21 @@ def load_inputs():
     header26, rows26 = read_cms_csv(cms26_path, CMS_2026.member)
     _, rows25 = read_cms_csv(cms25_path, CMS_2025.member)
     hcc_map = parse_hcc_map(map_path.read_text(encoding="utf-8"))
-    return build_rows(rows26, header26), rows25, hcc_map
+    return build_rows(rows26, header26), rows25, hcc_map, load_icd_years()
+
+
+def load_icd_years() -> tuple[CodeYear, CodeYear]:
+    p25, _ = fetch(ICD10CM_2025)
+    p26, _ = fetch(ICD10CM_2026)
+    return read_code_year(p25, 2025), read_code_year(p26, 2026)
+
+
+def _added(code: str, icd25: CodeYear, icd26: CodeYear) -> str:
+    if code in icd26.added:
+        return "FY2026 (Oct 1, 2025)"
+    if code in icd25.added:
+        return "FY2025 (Oct 1, 2024)"
+    return "before FY2025"
 
 
 def _by_code(rows: list[dict], column: str) -> dict[str, set[int]]:
@@ -57,7 +78,13 @@ def _by_code(rows: list[dict], column: str) -> dict[str, set[int]]:
     return out
 
 
-def analyze(crosswalk: list[dict], rows25: list[dict], hcc_map: dict[str, MapEntry]) -> Result:
+def analyze(
+    crosswalk: list[dict],
+    rows25: list[dict],
+    hcc_map: dict[str, MapEntry],
+    icd: tuple[CodeYear, CodeYear],
+) -> Result:
+    icd25, icd26 = icd
     v28_26: dict[str, set[int]] = defaultdict(set)
     other_26: dict[str, dict[str, set[int]]] = defaultdict(lambda: defaultdict(set))
     display: dict[str, str] = {}
@@ -91,8 +118,32 @@ def analyze(crosswalk: list[dict], rows25: list[dict], hcc_map: dict[str, MapEnt
                 "esrd_v24_hcc_2026": "|".join(map(str, sorted(other_26[code]["ESRD-V24"]))),
                 "rxhcc_v08_2026": "|".join(map(str, sorted(other_26[code]["RxHCC-V08"]))),
                 "status": status,
+                "added_to_icd10cm": _added(code, icd25, icd26),
             }
         )
+
+    # Codes the map gives a V28 HCC that are not in the CMS 2026 file and are not valid
+    # ICD-10-CM codes in FY2025 or FY2026. These are older parent codes that were split.
+    stale = []
+    for c, e in sorted(hcc_map.items()):
+        if not e.v28 or c in display or c in icd25.codes or c in icd26.codes:
+            continue
+        children = sorted(k for k in icd26.codes if k.startswith(c) and k != c)
+        stale.append(
+            {
+                "code": c,
+                "display": e.display,
+                "map_v28_hcc": "|".join(map(str, e.v28)),
+                "removed_from_icd10cm": "FY2025 (Oct 1, 2024)"
+                if c in icd25.deleted
+                else "before FY2025",
+                "fy2026_codes_under_it": "|".join(children),
+                "of_those_missing_from_map": sum(1 for k in children if k not in hcc_map),
+            }
+        )
+    # Codes CMS 2026 still pays that stopped being valid on Oct 1, 2025. They are correct to
+    # keep, because 2026 payments use 2025 dates of service.
+    retired = sorted(c for c in v28_26 if c in hcc_map and c not in icd26.codes)
 
     v28_mismatch = [
         (c, e.v28, tuple(sorted(v28_26.get(c, ()))))
@@ -136,6 +187,8 @@ def analyze(crosswalk: list[dict], rows25: list[dict], hcc_map: dict[str, MapEnt
         v24_mismatch=v24_mismatch,
         v24_only_in_map=v24_only,
         overlap=overlap,
+        stale=stale,
+        retired_still_mapped=retired,
     )
 
 
@@ -148,6 +201,9 @@ def render_markdown(res: Result) -> str:
     new = status["new ICD-10-CM code in FY2026 (not in the CMS 2025 file)"]
     cats = Counter(m["code"][:3] for m in res.missing).most_common(8)
     no_shared = [o for o in res.overlap if o["same_meaning"] == "no"]
+    added = Counter(m["added_to_icd10cm"] for m in res.missing)
+    stale_split_fy25 = [s for s in res.stale if s["removed_from_icd10cm"].startswith("FY2025")]
+    stale_children_missing = sum(s["of_those_missing_from_map"] for s in res.stale)
     url = f"https://github.com/metriport/metriport/blob/{METRIPORT_COMMIT}/{METRIPORT_HCC_MAP_PATH}"
     lines = [
         "# Metriport public HCC map vs CMS 2026",
@@ -162,7 +218,13 @@ def render_markdown(res: Result) -> str:
         f"- The public map has {_fmt(res.map_codes)} ICD-10-CM codes.",
         f"- CMS 2026 gives a payable V28 HCC to {_fmt(res.v28_codes_2026)} codes.",
         f"- **{_fmt(len(res.missing))} of those codes are not in the public map.** "
-        f"{_fmt(new)} are brand new ICD-10-CM codes for FY2026.",
+        f"{_fmt(new)} are brand new ICD-10-CM codes for FY2026. The other "
+        f"{_fmt(len(res.missing) - new)} were added to ICD-10-CM for FY2025.",
+        f"- {_fmt(len(res.stale))} codes in the map carry a V28 HCC but are not valid ICD-10-CM "
+        "codes in FY2025 or FY2026. They are older parent codes that were split into more "
+        f"specific codes. {_fmt(len(stale_split_fy25))} of them were split on Oct 1, 2024, and "
+        f"{_fmt(stale_children_missing)} of the new codes they were split into are among the "
+        "missing codes above.",
         f"- Codes that are in the map agree with CMS 2026 on V28: "
         f"{_fmt(len(res.v28_mismatch))} differences.",
         f"- Codes that are in the map agree with CMS 2025 on V24: "
@@ -173,14 +235,21 @@ def render_markdown(res: Result) -> str:
         f"{len(no_shared)} of them share no ICD-10-CM code at all between the two versions, "
         "so the number alone does not say which condition group it is.",
         "",
-        "So the map is accurate for the codes it has. The gap is the newer codes, "
-        "which a refresh from the 2026 CMS file closes.",
+        "So the map is accurate for the codes it has. The gap is the newer codes from the "
+        "Oct 1, 2024 and Oct 1, 2025 code updates, which a refresh from the 2026 CMS file "
+        "closes.",
         "",
         "## Missing codes by status",
         "",
         "| Status | Codes |",
         "|---|---:|",
         *[f"| {k} | {_fmt(v)} |" for k, v in sorted(status.items())],
+        "",
+        "When each missing code was added to ICD-10-CM (from the official addenda files):",
+        "",
+        "| Added | Codes |",
+        "|---|---:|",
+        *[f"| {k} | {_fmt(v)} |" for k, v in sorted(added.items())],
         "",
         "Most common ICD-10-CM categories among them: "
         + ", ".join(f"{c} ({n})" for c, n in cats)
@@ -202,6 +271,28 @@ def render_markdown(res: Result) -> str:
     for m in sorted(picks, key=lambda m: m["code"]):
         lines.append(f"| {m['code']} | {m['display']} | {m['v28_hcc_2026']} | {m['status']} |")
     lines += [
+        "",
+        "## Older codes that were split",
+        "",
+        "These codes are in the map with a V28 HCC, but they are not in the CMS 2026 file and "
+        "are not valid ICD-10-CM codes in FY2025 or FY2026. Each one was replaced by more "
+        "specific codes. Full list in `split_parent_codes.csv`.",
+        "",
+        "| Code | Description | Map V28 HCC | Removed from ICD-10-CM | Replaced by (FY2026) "
+        "| Of those, missing from map |",
+        "|---|---|---:|---|---|---:|",
+    ]
+    for s in res.stale:
+        lines.append(
+            f"| {s['code']} | {s['display']} | {s['map_v28_hcc']} | {s['removed_from_icd10cm']} "
+            f"| {s['fy2026_codes_under_it'].replace('|', ', ')} "
+            f"| {s['of_those_missing_from_map']} |"
+        )
+    lines += [
+        "",
+        f"A different case, for completeness: {', '.join(res.retired_still_mapped)} stopped "
+        "being valid on Oct 1, 2025, but CMS 2026 still maps them, because 2026 payments use "
+        "2025 dates of service. The map is right to keep them.",
         "",
         "## HCC numbers used by both V24 and V28",
         "",
@@ -242,6 +333,31 @@ def write(res: Result) -> None:
         w = csv.DictWriter(f, fieldnames=list(res.overlap[0]), lineterminator="\n")
         w.writeheader()
         w.writerows(res.overlap)
+    with open(REPORTS / "split_parent_codes.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(res.stale[0]), lineterminator="\n")
+        w.writeheader()
+        w.writerows(res.stale)
+    (REPORTS / "compare.json").write_text(json.dumps(summary(res), indent=2) + "\n")
+
+
+def summary(res: Result) -> dict:
+    """The headline numbers, for the README charts."""
+    new = [m for m in res.missing if m["status"].startswith("new")]
+    return {
+        "map_codes": res.map_codes,
+        "v28_codes_2026": res.v28_codes_2026,
+        "missing": len(res.missing),
+        "missing_new_fy2026": len(new),
+        "missing_added_fy2025": len(res.missing) - len(new),
+        "missing_by_category": Counter(m["code"][:3] for m in res.missing).most_common(),
+        "missing_new_by_category": Counter(m["code"][:3] for m in new).most_common(),
+        "v28_mismatches": len(res.v28_mismatch),
+        "v24_mismatches": len(res.v24_mismatch),
+        "split_parent_codes": len(res.stale),
+        "retired_still_mapped": res.retired_still_mapped,
+        "hcc_numbers_in_both": len(res.overlap),
+        "hcc_numbers_no_shared_code": sum(1 for o in res.overlap if o["same_meaning"] == "no"),
+    }
 
 
 def main() -> None:
@@ -249,6 +365,7 @@ def main() -> None:
     write(res)
     new = sum(1 for m in res.missing if m["status"].startswith("new"))
     print(f"compare: {len(res.missing)} codes with a 2026 V28 HCC missing from the map ({new} new)")
+    print(f"compare: {len(res.stale)} map codes with a V28 HCC that are no longer valid codes")
     print(f"compare: {len(res.overlap)} HCC numbers used in both V24 and V28")
 
 

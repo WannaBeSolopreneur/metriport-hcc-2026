@@ -48,6 +48,26 @@ CMS_2025 = Source(
     fallback="map25.zip",
 )
 
+# Official ICD-10-CM code lists (CDC/CMS). Used to tell which codes are valid in a fiscal year
+# and which were added or deleted on Oct 1 of that year.
+ICD10CM_2026 = Source(
+    name="ICD-10-CM FY2026 code descriptions in tabular order",
+    url="https://www.cms.gov/files/zip/2026-code-descriptions-tabular-order.zip",
+    sha256="55a9124a27ca78a4a5c41e1101eda064ec2e08d105ff9e78d1fbd1a83298ef11",
+    filename="icd10cm_2026_code_descriptions.zip",
+    member="icd10cm_codes_2026.txt",
+    fallback="2026-code-descriptions-tabular-order.zip",
+)
+
+ICD10CM_2025 = Source(
+    name="ICD-10-CM FY2025 code descriptions in tabular order",
+    url="https://www.cms.gov/files/zip/2025-code-descriptions-tabular-order.zip",
+    sha256="4f6c65f0034736d2b02fa9eb1128aab564fa673dd4d99363f8b2167af3994816",
+    filename="icd10cm_2025_code_descriptions.zip",
+    member="icd10cm_codes_2025.txt",
+    fallback="2025-code-descriptions-tabular-order.zip",
+)
+
 METRIPORT_COMMIT = "e1f26d504cb9d132d66a7a9607ffb199be759168"
 METRIPORT_HCC_MAP_PATH = "packages/core/src/external/fhir/shared/hcc-map.ts"
 METRIPORT_HCC_MAP = Source(

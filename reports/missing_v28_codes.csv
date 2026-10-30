@@ -1,232 +1,232 @@
-code,display,v28_hcc_2026,v22_hcc_2026,esrd_v24_hcc_2026,rxhcc_v08_2026,status
-C50A0,Malignant inflammatory neoplasm of unspecified breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-C50A1,Malignant inflammatory neoplasm of right breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-C50A2,Malignant inflammatory neoplasm of left breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-C810A,"Nodular lymphocyte predominant Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C811A,"Nodular sclerosis Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C812A,"Mixed cellularity Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C813A,"Lymphocyte depleted Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C814A,"Lymphocyte-rich Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C817A,"Other Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C819A,"Hodgkin lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C820A,"Follicular lymphoma grade I, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C821A,"Follicular lymphoma grade II, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C822A,"Follicular lymphoma grade III, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C823A,"Follicular lymphoma grade IIIa, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C824A,"Follicular lymphoma grade IIIb, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C825A,"Diffuse follicle center lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C826A,"Cutaneous follicle center lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C828A,"Other types of follicular lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C829A,"Follicular lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C830A,"Small cell B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C831A,"Mantle cell lymphoma, in remission",20,10,10,19,in the CMS 2025 file with a V28 HCC
-C83390,Primary central nervous system lymphoma,20,10,10,21,in the CMS 2025 file with a V28 HCC
-C83398,Diffuse large B-cell lymphoma of other extranodal and solid organ sites,20,10,10,21,in the CMS 2025 file with a V28 HCC
-C833A,"Diffuse large B-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C835A,"Lymphoblastic (diffuse) lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C837A,"Burkitt lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C838A,"Other non-follicular lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C839A,"Non-follicular (diffuse) lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C840A,"Mycosis fungoides, in remission",20,10,10,19,in the CMS 2025 file with a V28 HCC
-C841A,"Sezary disease, in remission",17,10,10,19,in the CMS 2025 file with a V28 HCC
-C844A,"Peripheral T-cell lymphoma, not elsewhere classified, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC
-C846A,"Anaplastic large cell lymphoma, ALK-positive, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C847B,"Anaplastic large cell lymphoma, ALK-negative, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC
-C849A,"Mature T/NK-cell lymphomas, unspecified, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C84AA,"Cutaneous T-cell lymphoma, unspecified, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C84ZA,"Other mature T/NK-cell lymphomas, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C851A,"Unspecified B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C852A,"Mediastinal (thymic) large B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C858A,"Other specified types of non-Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C859A,"Non-Hodgkin lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8600,"Extranodal NK/T-cell lymphoma, nasal type not having achieved remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8601,"Extranodal NK/T-cell lymphoma, nasal type, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8610,Hepatosplenic T-cell lymphoma not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8611,"Hepatosplenic T-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8620,Enteropathy-type (intestinal) T-cell lymphoma not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8621,"Enteropathy-type (intestinal) T-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8630,Subcutaneous panniculitis-like T-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8631,"Subcutaneous panniculitis-like T-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8640,Blastic NK-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8641,"Blastic NK-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8650,Angioimmunoblastic T-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8651,"Angioimmunoblastic T-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC
-C8660,Primary cutaneous CD30-positive T-cell proliferations not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8661,"Primary cutaneous CD30-positive T-cell proliferations, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC
-C8800,Waldenstrom macroglobulinemia not having achieved remission,21,23,23,19,in the CMS 2025 file with a V28 HCC
-C8801,"Waldenstrom macroglobulinemia, in remission",21,23,23,19,in the CMS 2025 file with a V28 HCC
-C8820,Heavy chain disease not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8821,"Heavy chain disease, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8830,Immunoproliferative small intestinal disease not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8831,"Immunoproliferative small intestinal disease, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8840,Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma] not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8841,"Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma], in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8880,Other malignant immunoproliferative diseases not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8881,"Other malignant immunoproliferative diseases, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8890,"Malignant immunoproliferative disease, unspecified not having achieved remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-C8891,"Malignant immunoproliferative disease, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC
-D6103,Fanconi anemia,109,46,46,96,in the CMS 2025 file with a V28 HCC
-D711,Leukocyte adhesion deficiency,115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-D718,Other functional disorders of polymorphonuclear neutrophils,115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-D719,"Functional disorders of polymorphonuclear neutrophils, unspecified",115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-E3400,"Carcinoid syndrome, unspecified",17,12,12,22,in the CMS 2025 file with a V28 HCC
-E3401,Carcinoid heart syndrome,17,12,12,22,in the CMS 2025 file with a V28 HCC
-E3409,Other carcinoid syndrome,17,12,12,22,in the CMS 2025 file with a V28 HCC
-E66813,"Obesity, class 3",48,22,22,,in the CMS 2025 file with a V28 HCC
-E72530,"Primary hyperoxaluria, type 1",50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-E72538,Other specified primary hyperoxaluria,50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-E72539,"Primary hyperoxaluria, unspecified",50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-F50010,"Anorexia nervosa, restricting type, mild",153,,,133,in the CMS 2025 file with a V28 HCC
-F50011,"Anorexia nervosa, restricting type, moderate",153,,,133,in the CMS 2025 file with a V28 HCC
-F50012,"Anorexia nervosa, restricting type, severe",153,,,133,in the CMS 2025 file with a V28 HCC
-F50013,"Anorexia nervosa, restricting type, extreme",153,,,133,in the CMS 2025 file with a V28 HCC
-F50014,"Anorexia nervosa, restricting type, in remission",153,,,133,in the CMS 2025 file with a V28 HCC
-F50019,"Anorexia nervosa, restricting type, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC
-F50020,"Anorexia nervosa, binge eating/purging type, mild",153,,,133,in the CMS 2025 file with a V28 HCC
-F50021,"Anorexia nervosa, binge eating/purging type, moderate",153,,,133,in the CMS 2025 file with a V28 HCC
-F50022,"Anorexia nervosa, binge eating/purging type, severe",153,,,133,in the CMS 2025 file with a V28 HCC
-F50023,"Anorexia nervosa, binge eating/purging type, extreme",153,,,133,in the CMS 2025 file with a V28 HCC
-F50024,"Anorexia nervosa, binge eating/purging type, in remission",153,,,133,in the CMS 2025 file with a V28 HCC
-F50029,"Anorexia nervosa, binge eating/purging type, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC
-F5020,"Bulimia nervosa, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC
-F5021,"Bulimia nervosa, mild",153,,,133,in the CMS 2025 file with a V28 HCC
-F5022,"Bulimia nervosa, moderate",153,,,133,in the CMS 2025 file with a V28 HCC
-F5023,"Bulimia nervosa, severe",153,,,133,in the CMS 2025 file with a V28 HCC
-F5024,"Bulimia nervosa, extreme",153,,,133,in the CMS 2025 file with a V28 HCC
-F5025,"Bulimia nervosa, in remission",153,,,133,in the CMS 2025 file with a V28 HCC
-G35A,Relapsing-remitting multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35B0,"Primary progressive multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35B1,Active primary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35B2,Non-active primary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35C0,"Secondary progressive multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35C1,Active secondary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35C2,Non-active secondary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G35D,"Multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G40841,"KCNQ2-related epilepsy, not intractable, with status epilepticus",201,79,79,164,in the CMS 2025 file with a V28 HCC
-G40842,"KCNQ2-related epilepsy, not intractable, without status epilepticus",201,79,79,164,in the CMS 2025 file with a V28 HCC
-G40843,"KCNQ2-related epilepsy, intractable, with status epilepticus",201,79,79,163,in the CMS 2025 file with a V28 HCC
-G40844,"KCNQ2-related epilepsy, intractable, without status epilepticus",201,79,79,163,in the CMS 2025 file with a V28 HCC
-G71036,Limb girdle muscular dystrophy due to fukutin related protein dysfunction,197,76,76,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-G9345,Developmental and epileptic encephalopathy,201,79,79,164,in the CMS 2025 file with a V28 HCC
-I2603,Cement embolism of pulmonary artery with acute cor pulmonale,267,85|107,85|107,186|215,in the CMS 2025 file with a V28 HCC
-I2604,Fat embolism of pulmonary artery with acute cor pulmonale,267,85|107,85|107,186|215,in the CMS 2025 file with a V28 HCC
-I2695,Cement embolism of pulmonary artery without acute cor pulmonale,267,107,107,215,in the CMS 2025 file with a V28 HCC
-I2696,Fat embolism of pulmonary artery without acute cor pulmonale,267,107,107,215,in the CMS 2025 file with a V28 HCC
-L98431,Non-pressure chronic ulcer of abdomen limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98432,Non-pressure chronic ulcer of abdomen with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98433,Non-pressure chronic ulcer of abdomen with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98434,Non-pressure chronic ulcer of abdomen with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98435,Non-pressure chronic ulcer of abdomen with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98436,Non-pressure chronic ulcer of abdomen with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98438,Non-pressure chronic ulcer of abdomen with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98439,Non-pressure chronic ulcer of abdomen with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98441,Non-pressure chronic ulcer of chest limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98442,Non-pressure chronic ulcer of chest with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98443,Non-pressure chronic ulcer of chest with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98444,Non-pressure chronic ulcer of chest with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98445,Non-pressure chronic ulcer of chest with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98446,Non-pressure chronic ulcer of chest with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98448,Non-pressure chronic ulcer of chest with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98449,Non-pressure chronic ulcer of chest with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98451,Non-pressure chronic ulcer of neck limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98452,Non-pressure chronic ulcer of neck with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98453,Non-pressure chronic ulcer of neck with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98454,Non-pressure chronic ulcer of neck with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98455,Non-pressure chronic ulcer of neck with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98456,Non-pressure chronic ulcer of neck with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98458,Non-pressure chronic ulcer of neck with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98459,Non-pressure chronic ulcer of neck with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98461,Non-pressure chronic ulcer of face limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98462,Non-pressure chronic ulcer of face with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98463,Non-pressure chronic ulcer of face with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98464,Non-pressure chronic ulcer of face with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98465,Non-pressure chronic ulcer of face with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98466,Non-pressure chronic ulcer of face with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98468,Non-pressure chronic ulcer of face with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98469,Non-pressure chronic ulcer of face with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98471,Non-pressure chronic ulcer of groin limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98472,Non-pressure chronic ulcer of groin with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98473,Non-pressure chronic ulcer of groin with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98474,Non-pressure chronic ulcer of groin with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98475,Non-pressure chronic ulcer of groin with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98476,Non-pressure chronic ulcer of groin with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98478,Non-pressure chronic ulcer of groin with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98479,Non-pressure chronic ulcer of groin with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A111,Non-pressure chronic ulcer of right upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A112,Non-pressure chronic ulcer of right upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A113,Non-pressure chronic ulcer of right upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A114,Non-pressure chronic ulcer of right upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A115,Non-pressure chronic ulcer of right upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A116,Non-pressure chronic ulcer of right upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A118,Non-pressure chronic ulcer of right upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A119,Non-pressure chronic ulcer of right upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A121,Non-pressure chronic ulcer of left upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A122,Non-pressure chronic ulcer of left upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A123,Non-pressure chronic ulcer of left upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A124,Non-pressure chronic ulcer of left upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A125,Non-pressure chronic ulcer of left upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A126,Non-pressure chronic ulcer of left upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A128,Non-pressure chronic ulcer of left upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A129,Non-pressure chronic ulcer of left upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A191,Non-pressure chronic ulcer of unspecified upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A192,Non-pressure chronic ulcer of unspecified upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A193,Non-pressure chronic ulcer of unspecified upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A194,Non-pressure chronic ulcer of unspecified upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A195,Non-pressure chronic ulcer of unspecified upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A196,Non-pressure chronic ulcer of unspecified upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A198,Non-pressure chronic ulcer of unspecified upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A199,Non-pressure chronic ulcer of unspecified upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A211,Non-pressure chronic ulcer of right forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A212,Non-pressure chronic ulcer of right forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A213,Non-pressure chronic ulcer of right forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A214,Non-pressure chronic ulcer of right forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A215,Non-pressure chronic ulcer of right forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A216,Non-pressure chronic ulcer of right forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A218,Non-pressure chronic ulcer of right forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A219,Non-pressure chronic ulcer of right forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A221,Non-pressure chronic ulcer of left forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A222,Non-pressure chronic ulcer of left forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A223,Non-pressure chronic ulcer of left forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A224,Non-pressure chronic ulcer of left forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A225,Non-pressure chronic ulcer of left forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A226,Non-pressure chronic ulcer of left forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A228,Non-pressure chronic ulcer of left forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A229,Non-pressure chronic ulcer of left forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A291,Non-pressure chronic ulcer of unspecified forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A292,Non-pressure chronic ulcer of unspecified forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A293,Non-pressure chronic ulcer of unspecified forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A294,Non-pressure chronic ulcer of unspecified forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A295,Non-pressure chronic ulcer of unspecified forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A296,Non-pressure chronic ulcer of unspecified forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A298,Non-pressure chronic ulcer of unspecified forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A299,Non-pressure chronic ulcer of unspecified forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A311,Non-pressure chronic ulcer of right hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A312,Non-pressure chronic ulcer of right hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A313,Non-pressure chronic ulcer of right hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A314,Non-pressure chronic ulcer of right hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A315,Non-pressure chronic ulcer of right hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A316,Non-pressure chronic ulcer of right hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A318,Non-pressure chronic ulcer of right hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A319,Non-pressure chronic ulcer of right hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A321,Non-pressure chronic ulcer of left hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A322,Non-pressure chronic ulcer of left hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A323,Non-pressure chronic ulcer of left hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A324,Non-pressure chronic ulcer of left hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A325,Non-pressure chronic ulcer of left hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A326,Non-pressure chronic ulcer of left hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A328,Non-pressure chronic ulcer of left hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A329,Non-pressure chronic ulcer of left hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A391,Non-pressure chronic ulcer of unspecified hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A392,Non-pressure chronic ulcer of unspecified hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A393,Non-pressure chronic ulcer of unspecified hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A394,Non-pressure chronic ulcer of unspecified hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A395,Non-pressure chronic ulcer of unspecified hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A396,Non-pressure chronic ulcer of unspecified hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A398,Non-pressure chronic ulcer of unspecified hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-L98A399,Non-pressure chronic ulcer of unspecified hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-M05A,Abnormal rheumatoid factor and anti-citrullinated protein antibody with rheumatoid arthritis,93,40,40,83,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-R1116,Cannabis hyperemesis syndrome,137,55,55,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-T36AX2A,"Poisoning by fluoroquinolone antibiotics, intentional self-harm, initial encounter",155,58,59,132,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-T45AX2A,"Poisoning by immune checkpoint inhibitors and immunostimulant drugs, intentional self-harm, initial encounter",155,58,59,132,in the CMS 2025 file with a V28 HCC
-T65842A,"Toxic effect of xylazine, intentional self-harm, initial encounter",155,58,59,132,new ICD-10-CM code in FY2026 (not in the CMS 2025 file)
-Z6856,"Body mass index [BMI] pediatric, greater than or equal to 140% of the 95th percentile for age",48,22,22,,in the CMS 2025 file with a V28 HCC
+code,display,v28_hcc_2026,v22_hcc_2026,esrd_v24_hcc_2026,rxhcc_v08_2026,status,added_to_icd10cm
+C50A0,Malignant inflammatory neoplasm of unspecified breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+C50A1,Malignant inflammatory neoplasm of right breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+C50A2,Malignant inflammatory neoplasm of left breast,23,12,12,22,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+C810A,"Nodular lymphocyte predominant Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C811A,"Nodular sclerosis Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C812A,"Mixed cellularity Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C813A,"Lymphocyte depleted Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C814A,"Lymphocyte-rich Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C817A,"Other Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C819A,"Hodgkin lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C820A,"Follicular lymphoma grade I, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C821A,"Follicular lymphoma grade II, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C822A,"Follicular lymphoma grade III, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C823A,"Follicular lymphoma grade IIIa, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C824A,"Follicular lymphoma grade IIIb, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C825A,"Diffuse follicle center lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C826A,"Cutaneous follicle center lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C828A,"Other types of follicular lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C829A,"Follicular lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C830A,"Small cell B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C831A,"Mantle cell lymphoma, in remission",20,10,10,19,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C83390,Primary central nervous system lymphoma,20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C83398,Diffuse large B-cell lymphoma of other extranodal and solid organ sites,20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C833A,"Diffuse large B-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C835A,"Lymphoblastic (diffuse) lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C837A,"Burkitt lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C838A,"Other non-follicular lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C839A,"Non-follicular (diffuse) lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C840A,"Mycosis fungoides, in remission",20,10,10,19,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C841A,"Sezary disease, in remission",17,10,10,19,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C844A,"Peripheral T-cell lymphoma, not elsewhere classified, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C846A,"Anaplastic large cell lymphoma, ALK-positive, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C847B,"Anaplastic large cell lymphoma, ALK-negative, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C849A,"Mature T/NK-cell lymphomas, unspecified, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C84AA,"Cutaneous T-cell lymphoma, unspecified, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C84ZA,"Other mature T/NK-cell lymphomas, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C851A,"Unspecified B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C852A,"Mediastinal (thymic) large B-cell lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C858A,"Other specified types of non-Hodgkin lymphoma, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C859A,"Non-Hodgkin lymphoma, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8600,"Extranodal NK/T-cell lymphoma, nasal type not having achieved remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8601,"Extranodal NK/T-cell lymphoma, nasal type, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8610,Hepatosplenic T-cell lymphoma not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8611,"Hepatosplenic T-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8620,Enteropathy-type (intestinal) T-cell lymphoma not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8621,"Enteropathy-type (intestinal) T-cell lymphoma, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8630,Subcutaneous panniculitis-like T-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8631,"Subcutaneous panniculitis-like T-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8640,Blastic NK-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8641,"Blastic NK-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8650,Angioimmunoblastic T-cell lymphoma not having achieved remission,19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8651,"Angioimmunoblastic T-cell lymphoma, in remission",19,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8660,Primary cutaneous CD30-positive T-cell proliferations not having achieved remission,20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8661,"Primary cutaneous CD30-positive T-cell proliferations, in remission",20,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8800,Waldenstrom macroglobulinemia not having achieved remission,21,23,23,19,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8801,"Waldenstrom macroglobulinemia, in remission",21,23,23,19,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8820,Heavy chain disease not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8821,"Heavy chain disease, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8830,Immunoproliferative small intestinal disease not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8831,"Immunoproliferative small intestinal disease, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8840,Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma] not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8841,"Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma], in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8880,Other malignant immunoproliferative diseases not having achieved remission,21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8881,"Other malignant immunoproliferative diseases, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8890,"Malignant immunoproliferative disease, unspecified not having achieved remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+C8891,"Malignant immunoproliferative disease, unspecified, in remission",21,10,10,21,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+D6103,Fanconi anemia,109,46,46,96,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+D711,Leukocyte adhesion deficiency,115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+D718,Other functional disorders of polymorphonuclear neutrophils,115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+D719,"Functional disorders of polymorphonuclear neutrophils, unspecified",115,47,47,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+E3400,"Carcinoid syndrome, unspecified",17,12,12,22,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+E3401,Carcinoid heart syndrome,17,12,12,22,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+E3409,Other carcinoid syndrome,17,12,12,22,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+E66813,"Obesity, class 3",48,22,22,,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+E72530,"Primary hyperoxaluria, type 1",50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+E72538,Other specified primary hyperoxaluria,50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+E72539,"Primary hyperoxaluria, unspecified",50,23,23,43,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+F50010,"Anorexia nervosa, restricting type, mild",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50011,"Anorexia nervosa, restricting type, moderate",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50012,"Anorexia nervosa, restricting type, severe",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50013,"Anorexia nervosa, restricting type, extreme",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50014,"Anorexia nervosa, restricting type, in remission",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50019,"Anorexia nervosa, restricting type, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50020,"Anorexia nervosa, binge eating/purging type, mild",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50021,"Anorexia nervosa, binge eating/purging type, moderate",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50022,"Anorexia nervosa, binge eating/purging type, severe",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50023,"Anorexia nervosa, binge eating/purging type, extreme",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50024,"Anorexia nervosa, binge eating/purging type, in remission",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F50029,"Anorexia nervosa, binge eating/purging type, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5020,"Bulimia nervosa, unspecified",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5021,"Bulimia nervosa, mild",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5022,"Bulimia nervosa, moderate",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5023,"Bulimia nervosa, severe",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5024,"Bulimia nervosa, extreme",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+F5025,"Bulimia nervosa, in remission",153,,,133,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+G35A,Relapsing-remitting multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35B0,"Primary progressive multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35B1,Active primary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35B2,Non-active primary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35C0,"Secondary progressive multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35C1,Active secondary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35C2,Non-active secondary progressive multiple sclerosis,198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G35D,"Multiple sclerosis, unspecified",198,77,77,159,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G40841,"KCNQ2-related epilepsy, not intractable, with status epilepticus",201,79,79,164,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+G40842,"KCNQ2-related epilepsy, not intractable, without status epilepticus",201,79,79,164,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+G40843,"KCNQ2-related epilepsy, intractable, with status epilepticus",201,79,79,163,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+G40844,"KCNQ2-related epilepsy, intractable, without status epilepticus",201,79,79,163,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+G71036,Limb girdle muscular dystrophy due to fukutin related protein dysfunction,197,76,76,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+G9345,Developmental and epileptic encephalopathy,201,79,79,164,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+I2603,Cement embolism of pulmonary artery with acute cor pulmonale,267,85|107,85|107,186|215,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+I2604,Fat embolism of pulmonary artery with acute cor pulmonale,267,85|107,85|107,186|215,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+I2695,Cement embolism of pulmonary artery without acute cor pulmonale,267,107,107,215,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+I2696,Fat embolism of pulmonary artery without acute cor pulmonale,267,107,107,215,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+L98431,Non-pressure chronic ulcer of abdomen limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98432,Non-pressure chronic ulcer of abdomen with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98433,Non-pressure chronic ulcer of abdomen with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98434,Non-pressure chronic ulcer of abdomen with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98435,Non-pressure chronic ulcer of abdomen with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98436,Non-pressure chronic ulcer of abdomen with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98438,Non-pressure chronic ulcer of abdomen with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98439,Non-pressure chronic ulcer of abdomen with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98441,Non-pressure chronic ulcer of chest limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98442,Non-pressure chronic ulcer of chest with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98443,Non-pressure chronic ulcer of chest with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98444,Non-pressure chronic ulcer of chest with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98445,Non-pressure chronic ulcer of chest with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98446,Non-pressure chronic ulcer of chest with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98448,Non-pressure chronic ulcer of chest with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98449,Non-pressure chronic ulcer of chest with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98451,Non-pressure chronic ulcer of neck limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98452,Non-pressure chronic ulcer of neck with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98453,Non-pressure chronic ulcer of neck with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98454,Non-pressure chronic ulcer of neck with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98455,Non-pressure chronic ulcer of neck with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98456,Non-pressure chronic ulcer of neck with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98458,Non-pressure chronic ulcer of neck with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98459,Non-pressure chronic ulcer of neck with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98461,Non-pressure chronic ulcer of face limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98462,Non-pressure chronic ulcer of face with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98463,Non-pressure chronic ulcer of face with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98464,Non-pressure chronic ulcer of face with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98465,Non-pressure chronic ulcer of face with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98466,Non-pressure chronic ulcer of face with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98468,Non-pressure chronic ulcer of face with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98469,Non-pressure chronic ulcer of face with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98471,Non-pressure chronic ulcer of groin limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98472,Non-pressure chronic ulcer of groin with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98473,Non-pressure chronic ulcer of groin with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98474,Non-pressure chronic ulcer of groin with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98475,Non-pressure chronic ulcer of groin with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98476,Non-pressure chronic ulcer of groin with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98478,Non-pressure chronic ulcer of groin with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98479,Non-pressure chronic ulcer of groin with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A111,Non-pressure chronic ulcer of right upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A112,Non-pressure chronic ulcer of right upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A113,Non-pressure chronic ulcer of right upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A114,Non-pressure chronic ulcer of right upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A115,Non-pressure chronic ulcer of right upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A116,Non-pressure chronic ulcer of right upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A118,Non-pressure chronic ulcer of right upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A119,Non-pressure chronic ulcer of right upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A121,Non-pressure chronic ulcer of left upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A122,Non-pressure chronic ulcer of left upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A123,Non-pressure chronic ulcer of left upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A124,Non-pressure chronic ulcer of left upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A125,Non-pressure chronic ulcer of left upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A126,Non-pressure chronic ulcer of left upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A128,Non-pressure chronic ulcer of left upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A129,Non-pressure chronic ulcer of left upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A191,Non-pressure chronic ulcer of unspecified upper arm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A192,Non-pressure chronic ulcer of unspecified upper arm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A193,Non-pressure chronic ulcer of unspecified upper arm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A194,Non-pressure chronic ulcer of unspecified upper arm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A195,Non-pressure chronic ulcer of unspecified upper arm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A196,Non-pressure chronic ulcer of unspecified upper arm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A198,Non-pressure chronic ulcer of unspecified upper arm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A199,Non-pressure chronic ulcer of unspecified upper arm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A211,Non-pressure chronic ulcer of right forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A212,Non-pressure chronic ulcer of right forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A213,Non-pressure chronic ulcer of right forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A214,Non-pressure chronic ulcer of right forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A215,Non-pressure chronic ulcer of right forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A216,Non-pressure chronic ulcer of right forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A218,Non-pressure chronic ulcer of right forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A219,Non-pressure chronic ulcer of right forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A221,Non-pressure chronic ulcer of left forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A222,Non-pressure chronic ulcer of left forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A223,Non-pressure chronic ulcer of left forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A224,Non-pressure chronic ulcer of left forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A225,Non-pressure chronic ulcer of left forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A226,Non-pressure chronic ulcer of left forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A228,Non-pressure chronic ulcer of left forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A229,Non-pressure chronic ulcer of left forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A291,Non-pressure chronic ulcer of unspecified forearm limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A292,Non-pressure chronic ulcer of unspecified forearm with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A293,Non-pressure chronic ulcer of unspecified forearm with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A294,Non-pressure chronic ulcer of unspecified forearm with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A295,Non-pressure chronic ulcer of unspecified forearm with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A296,Non-pressure chronic ulcer of unspecified forearm with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A298,Non-pressure chronic ulcer of unspecified forearm with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A299,Non-pressure chronic ulcer of unspecified forearm with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A311,Non-pressure chronic ulcer of right hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A312,Non-pressure chronic ulcer of right hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A313,Non-pressure chronic ulcer of right hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A314,Non-pressure chronic ulcer of right hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A315,Non-pressure chronic ulcer of right hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A316,Non-pressure chronic ulcer of right hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A318,Non-pressure chronic ulcer of right hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A319,Non-pressure chronic ulcer of right hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A321,Non-pressure chronic ulcer of left hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A322,Non-pressure chronic ulcer of left hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A323,Non-pressure chronic ulcer of left hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A324,Non-pressure chronic ulcer of left hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A325,Non-pressure chronic ulcer of left hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A326,Non-pressure chronic ulcer of left hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A328,Non-pressure chronic ulcer of left hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A329,Non-pressure chronic ulcer of left hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A391,Non-pressure chronic ulcer of unspecified hand limited to breakdown of skin,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A392,Non-pressure chronic ulcer of unspecified hand with fat layer exposed,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A393,Non-pressure chronic ulcer of unspecified hand with necrosis of muscle,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A394,Non-pressure chronic ulcer of unspecified hand with necrosis of bone,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A395,Non-pressure chronic ulcer of unspecified hand with muscle involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A396,Non-pressure chronic ulcer of unspecified hand with bone involvement without evidence of necrosis,380,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A398,Non-pressure chronic ulcer of unspecified hand with other specified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+L98A399,Non-pressure chronic ulcer of unspecified hand with unspecified severity,383,161,161,311,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+M05A,Abnormal rheumatoid factor and anti-citrullinated protein antibody with rheumatoid arthritis,93,40,40,83,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+R1116,Cannabis hyperemesis syndrome,137,55,55,,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+T36AX2A,"Poisoning by fluoroquinolone antibiotics, intentional self-harm, initial encounter",155,58,59,132,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+T45AX2A,"Poisoning by immune checkpoint inhibitors and immunostimulant drugs, intentional self-harm, initial encounter",155,58,59,132,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"
+T65842A,"Toxic effect of xylazine, intentional self-harm, initial encounter",155,58,59,132,new ICD-10-CM code in FY2026 (not in the CMS 2025 file),"FY2026 (Oct 1, 2025)"
+Z6856,"Body mass index [BMI] pediatric, greater than or equal to 140% of the 95th percentile for age",48,22,22,,in the CMS 2025 file with a V28 HCC,"FY2025 (Oct 1, 2024)"

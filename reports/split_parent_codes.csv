@@ -1,0 +1,23 @@
+code,display,map_v28_hcc,removed_from_icd10cm,fy2026_codes_under_it,of_those_missing_from_map
+C8339,"Diffuse large B-cell lymphoma, extranodal and solid organ sites",20,"FY2025 (Oct 1, 2024)",C83390|C83398,2
+C860,"Extranodal NK/T-cell lymphoma, nasal type",20,"FY2025 (Oct 1, 2024)",C8600|C8601,2
+C861,Hepatosplenic T-cell lymphoma,20,"FY2025 (Oct 1, 2024)",C8610|C8611,2
+C862,Enteropathy-type (intestinal) T-cell lymphoma,20,"FY2025 (Oct 1, 2024)",C8620|C8621,2
+C863,Subcutaneous panniculitis-like T-cell lymphoma,19,"FY2025 (Oct 1, 2024)",C8630|C8631,2
+C864,Blastic NK-cell lymphoma,19,"FY2025 (Oct 1, 2024)",C8640|C8641,2
+C865,Angioimmunoblastic T-cell lymphoma,19,"FY2025 (Oct 1, 2024)",C8650|C8651,2
+C866,Primary cutaneous CD30-positive T-cell proliferations,20,"FY2025 (Oct 1, 2024)",C8660|C8661,2
+C880,Waldenstrom macroglobulinemia,21,"FY2025 (Oct 1, 2024)",C8800|C8801,2
+C882,Heavy chain disease,21,"FY2025 (Oct 1, 2024)",C8820|C8821,2
+C883,Immunoproliferative small intestinal disease,21,"FY2025 (Oct 1, 2024)",C8830|C8831,2
+C884,Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma],21,"FY2025 (Oct 1, 2024)",C8840|C8841,2
+C888,Other malignant immunoproliferative diseases,21,"FY2025 (Oct 1, 2024)",C8880|C8881,2
+C889,"Malignant immunoproliferative disease, unspecified",21,"FY2025 (Oct 1, 2024)",C8890|C8891,2
+E340,Carcinoid syndrome,17,"FY2025 (Oct 1, 2024)",E3400|E3401|E3409,3
+F5001,"Anorexia nervosa, restricting type",153,"FY2025 (Oct 1, 2024)",F50010|F50011|F50012|F50013|F50014|F50019,6
+F5002,"Anorexia nervosa, binge eating/purging type",153,"FY2025 (Oct 1, 2024)",F50020|F50021|F50022|F50023|F50024|F50029,6
+F502,Bulimia nervosa,153,"FY2025 (Oct 1, 2024)",F5020|F5021|F5022|F5023|F5024|F5025,6
+G20,Parkinson's disease,199,before FY2025,G20A1|G20A2|G20B1|G20B2|G20C,0
+G378,Other specified demyelinating diseases of central nervous system,198,before FY2025,G3781|G3789,0
+I248,Other forms of acute ischemic heart disease,229,before FY2025,I2481|I2489,0
+J156,Pneumonia due to other Gram-negative bacteria,282,before FY2025,J1561|J1569,0

@@ -9,8 +9,10 @@ For each patient NDJSON file it:
 3. parses that temp file into a per-patient CSV (QUOTE_ALL, like parseFhir.py),
 4. deletes the temp file.
 
-Only Patient, Condition and Encounter are flattened here, with the same flatteners the
-single-pass loader uses, so the comparison isolates the cost of re-reading the file.
+Only Patient, Condition and Encounter are flattened here. It uses the same line parser
+(fhir_loader.ndjson) and the same flatteners as the single-pass loader, including one
+Condition row per ICD-10 coding. So both sides read the same resources and produce the same
+rows, and the comparison isolates the cost of re-reading the file.
 """
 
 from __future__ import annotations
@@ -21,55 +23,51 @@ import os
 from pathlib import Path
 
 from fhir_loader.flatten import COLUMNS, FLATTENERS
+from fhir_loader.ndjson import LoadStats, flatten_resource, iter_resources
 from fhir_loader.resource_types import RESOURCE_TYPES
 
 
-def parse_file(input_path: Path, out_dir: Path, types=RESOURCE_TYPES) -> dict[str, list[dict]]:
+def parse_file(
+    input_path: Path, out_dir: Path, types=RESOURCE_TYPES, stats: LoadStats | None = None
+) -> dict[str, list[dict]]:
+    stats = stats if stats is not None else LoadStats()
     patient_id = None
-    with open(input_path) as infile:
-        for line in infile:
-            try:
-                resource = json.loads(line).get("resource", {})
-            except json.JSONDecodeError:
-                continue
-            if resource.get("resourceType") == "Patient" and resource.get("id"):
-                patient_id = resource["id"].removeprefix("Patient/")
-                break
+    for resource in iter_resources(input_path, LoadStats()):
+        if resource["resourceType"] == "Patient" and resource.get("id"):
+            patient_id = str(resource["id"]).removeprefix("Patient/")
+            break
 
     out_dir.mkdir(parents=True, exist_ok=True)
     rows: dict[str, list[dict]] = {t: [] for t in FLATTENERS}
     for resource_type in types:
         filtered = out_dir / f"temp_{resource_type.lower()}.ndjson"
-        with open(input_path) as infile, open(filtered, "w") as outfile:
-            for line in infile:
-                try:
-                    resource = json.loads(line).get("resource", {})
-                except json.JSONDecodeError:
-                    continue
-                if resource.get("resourceType") == resource_type:
+        with open(filtered, "w") as outfile:
+            for resource in iter_resources(input_path, LoadStats()):
+                if resource["resourceType"] == resource_type:
                     if resource_type == "Binary" and patient_id:
                         resource["patient_id"] = patient_id
                     outfile.write(json.dumps(resource) + "\n")
         if resource_type in FLATTENERS:
-            flatten = FLATTENERS[resource_type]
             with (
-                open(filtered, encoding="utf-8-sig") as f,
+                open(filtered, encoding="utf-8") as f,
                 open(out_dir / f"{resource_type.lower()}.csv", "w", newline="") as csvfile,
             ):
                 writer = csv.writer(csvfile, escapechar="\\", quoting=csv.QUOTE_ALL)
                 writer.writerow(COLUMNS[resource_type])
                 for line in f:
-                    row = flatten(json.loads(line))
-                    rows[resource_type].append(row)
-                    writer.writerow(list(row.values()))
+                    for row in flatten_resource(json.loads(line), stats):
+                        rows[resource_type].append(row)
+                        writer.writerow(list(row.values()))
         os.remove(filtered)
     return rows
 
 
-def run(files: list[Path], out_dir: Path, types=RESOURCE_TYPES) -> dict[str, list[dict]]:
+def run(
+    files: list[Path], out_dir: Path, types=RESOURCE_TYPES, stats: LoadStats | None = None
+) -> dict[str, list[dict]]:
     all_rows: dict[str, list[dict]] = {t: [] for t in FLATTENERS}
     for path in files:
-        got = parse_file(path, out_dir / path.stem, types)
+        got = parse_file(path, out_dir / path.stem, types, stats)
         for t, r in got.items():
             all_rows[t].extend(r)
     return all_rows

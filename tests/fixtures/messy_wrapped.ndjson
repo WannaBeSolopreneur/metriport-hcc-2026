@@ -1,0 +1,21 @@
+﻿{"fullUrl": "urn:uuid:p1", "resource": {"resourceType": "Patient", "id": "p1", "gender": "female", "birthDate": "1950-01-02"}}
+{"fullUrl": "urn:uuid:multi", "resource": {"resourceType": "Condition", "id": "multi", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10"}, {"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9"}]}}}
+{"fullUrl": "urn:uuid:snomed_first", "resource": {"resourceType": "Condition", "id": "snomed_first", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://snomed.info/sct", "code": "44054006"}, {"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E119"}]}}}
+
+{"fullUrl": "urn:uuid:oid", "resource": {"resourceType": "Condition", "id": "oid", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "urn:oid:2.16.840.1.113883.6.90", "code": "E11.9"}]}}}
+[1, 2]
+"just a string"
+{not json
+{"fullUrl": "urn:uuid:x"}
+{"resource": {"id": "notype"}}
+{"fullUrl": "urn:uuid:who", "resource": {"resourceType": "Condition", "id": "who", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "E11.9"}]}}}
+{"fullUrl": "urn:uuid:lower_space", "resource": {"resourceType": "Condition", "id": "lower_space", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": " e11.9 "}]}}}
+{"fullUrl": "urn:uuid:inner_space", "resource": {"resourceType": "Condition", "id": "inner_space", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "C50. A0"}]}}}
+{"fullUrl": "urn:uuid:dup", "resource": {"resourceType": "Condition", "id": "dup", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9"}, {"system": "urn:oid:2.16.840.1.113883.6.90", "code": "E119"}]}}}
+{"fullUrl": "urn:uuid:snomed_only", "resource": {"resourceType": "Condition", "id": "snomed_only", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://snomed.info/sct", "code": "38341003"}]}}}
+{"fullUrl": "urn:uuid:empty_code", "resource": {"resourceType": "Condition", "id": "empty_code", "subject": {"reference": "Patient/p1"}, "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "  "}]}}}
+{"fullUrl": "urn:uuid:no_code", "resource": {"resourceType": "Condition", "id": "no_code", "subject": {"reference": "Patient/p1"}}}
+{"fullUrl": "urn:uuid:null_coding", "resource": {"resourceType": "Condition", "id": "null_coding", "subject": {"reference": "Patient/p1"}, "code": {"coding": null}}}
+{"fullUrl": "urn:uuid:no_subject", "resource": {"resourceType": "Condition", "id": "no_subject", "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9"}]}}}
+{"fullUrl": "urn:uuid:e1", "resource": {"resourceType": "Encounter", "id": "e1", "subject": {"reference": "Patient/p1"}, "status": "finished"}}
+{"fullUrl": "urn:uuid:o1", "resource": {"resourceType": "Observation", "id": "o1"}}

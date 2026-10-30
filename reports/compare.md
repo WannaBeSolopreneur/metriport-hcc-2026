@@ -6,13 +6,14 @@ Inputs: [`hcc-map.ts` at `e1f26d5`](https://github.com/metriport/metriport/blob/
 
 - The public map has 11,184 ICD-10-CM codes.
 - CMS 2026 gives a payable V28 HCC to 8,019 codes.
-- **231 of those codes are not in the public map.** 134 are brand new ICD-10-CM codes for FY2026.
+- **231 of those codes are not in the public map.** 134 are brand new ICD-10-CM codes for FY2026. The other 97 were added to ICD-10-CM for FY2025.
+- 22 codes in the map carry a V28 HCC but are not valid ICD-10-CM codes in FY2025 or FY2026. They are older parent codes that were split into more specific codes. 18 of them were split on Oct 1, 2024, and 49 of the new codes they were split into are among the missing codes above.
 - Codes that are in the map agree with CMS 2026 on V28: 0 differences.
 - Codes that are in the map agree with CMS 2025 on V24: 0 differences.
 - 2,255 codes in the map carry a V24 HCC and no V28 HCC. Community V24 is not one of the models in the CMS 2026 file.
 - 26 HCC numbers are used by both V24 and V28 in the map. 23 of them share no ICD-10-CM code at all between the two versions, so the number alone does not say which condition group it is.
 
-So the map is accurate for the codes it has. The gap is the newer codes, which a refresh from the 2026 CMS file closes.
+So the map is accurate for the codes it has. The gap is the newer codes from the Oct 1, 2024 and Oct 1, 2025 code updates, which a refresh from the 2026 CMS file closes.
 
 ## Missing codes by status
 
@@ -20,6 +21,13 @@ So the map is accurate for the codes it has. The gap is the newer codes, which a
 |---|---:|
 | in the CMS 2025 file with a V28 HCC | 97 |
 | new ICD-10-CM code in FY2026 (not in the CMS 2025 file) | 134 |
+
+When each missing code was added to ICD-10-CM (from the official addenda files):
+
+| Added | Codes |
+|---|---:|
+| FY2025 (Oct 1, 2024) | 97 |
+| FY2026 (Oct 1, 2025) | 134 |
 
 Most common ICD-10-CM categories among them: L98 (112), F50 (18), C86 (14), C88 (12), C82 (9), C83 (9), C84 (8), G35 (8).
 
@@ -37,6 +45,37 @@ Examples (full list in `missing_v28_codes.csv`):
 | C851A | Unspecified B-cell lymphoma, in remission | 21 | in the CMS 2025 file with a V28 HCC |
 | C8600 | Extranodal NK/T-cell lymphoma, nasal type not having achieved remission | 20 | in the CMS 2025 file with a V28 HCC |
 | E66813 | Obesity, class 3 | 48 | in the CMS 2025 file with a V28 HCC |
+
+## Older codes that were split
+
+These codes are in the map with a V28 HCC, but they are not in the CMS 2026 file and are not valid ICD-10-CM codes in FY2025 or FY2026. Each one was replaced by more specific codes. Full list in `split_parent_codes.csv`.
+
+| Code | Description | Map V28 HCC | Removed from ICD-10-CM | Replaced by (FY2026) | Of those, missing from map |
+|---|---|---:|---|---|---:|
+| C8339 | Diffuse large B-cell lymphoma, extranodal and solid organ sites | 20 | FY2025 (Oct 1, 2024) | C83390, C83398 | 2 |
+| C860 | Extranodal NK/T-cell lymphoma, nasal type | 20 | FY2025 (Oct 1, 2024) | C8600, C8601 | 2 |
+| C861 | Hepatosplenic T-cell lymphoma | 20 | FY2025 (Oct 1, 2024) | C8610, C8611 | 2 |
+| C862 | Enteropathy-type (intestinal) T-cell lymphoma | 20 | FY2025 (Oct 1, 2024) | C8620, C8621 | 2 |
+| C863 | Subcutaneous panniculitis-like T-cell lymphoma | 19 | FY2025 (Oct 1, 2024) | C8630, C8631 | 2 |
+| C864 | Blastic NK-cell lymphoma | 19 | FY2025 (Oct 1, 2024) | C8640, C8641 | 2 |
+| C865 | Angioimmunoblastic T-cell lymphoma | 19 | FY2025 (Oct 1, 2024) | C8650, C8651 | 2 |
+| C866 | Primary cutaneous CD30-positive T-cell proliferations | 20 | FY2025 (Oct 1, 2024) | C8660, C8661 | 2 |
+| C880 | Waldenstrom macroglobulinemia | 21 | FY2025 (Oct 1, 2024) | C8800, C8801 | 2 |
+| C882 | Heavy chain disease | 21 | FY2025 (Oct 1, 2024) | C8820, C8821 | 2 |
+| C883 | Immunoproliferative small intestinal disease | 21 | FY2025 (Oct 1, 2024) | C8830, C8831 | 2 |
+| C884 | Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma] | 21 | FY2025 (Oct 1, 2024) | C8840, C8841 | 2 |
+| C888 | Other malignant immunoproliferative diseases | 21 | FY2025 (Oct 1, 2024) | C8880, C8881 | 2 |
+| C889 | Malignant immunoproliferative disease, unspecified | 21 | FY2025 (Oct 1, 2024) | C8890, C8891 | 2 |
+| E340 | Carcinoid syndrome | 17 | FY2025 (Oct 1, 2024) | E3400, E3401, E3409 | 3 |
+| F5001 | Anorexia nervosa, restricting type | 153 | FY2025 (Oct 1, 2024) | F50010, F50011, F50012, F50013, F50014, F50019 | 6 |
+| F5002 | Anorexia nervosa, binge eating/purging type | 153 | FY2025 (Oct 1, 2024) | F50020, F50021, F50022, F50023, F50024, F50029 | 6 |
+| F502 | Bulimia nervosa | 153 | FY2025 (Oct 1, 2024) | F5020, F5021, F5022, F5023, F5024, F5025 | 6 |
+| G20 | Parkinson's disease | 199 | before FY2025 | G20A1, G20A2, G20B1, G20B2, G20C | 0 |
+| G378 | Other specified demyelinating diseases of central nervous system | 198 | before FY2025 | G3781, G3789 | 0 |
+| I248 | Other forms of acute ischemic heart disease | 229 | before FY2025 | I2481, I2489 | 0 |
+| J156 | Pneumonia due to other Gram-negative bacteria | 282 | before FY2025 | J1561, J1569 | 0 |
+
+A different case, for completeness: D71, E7253, G35 stopped being valid on Oct 1, 2025, but CMS 2026 still maps them, because 2026 payments use 2025 dates of service. The map is right to keep them.
 
 ## HCC numbers used by both V24 and V28
 

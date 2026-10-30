@@ -1,6 +1,11 @@
 """Generate synthetic, Metriport-shaped FHIR NDJSON: one file per patient, one bundle entry
 ({"fullUrl", "resource"}) per line, covering all 28 resource types the fhir-to-csv step handles.
 
+A small share of the data is messy on purpose, the way real feeds are: Conditions with two
+ICD-10 codings, the OID or WHO ICD-10 system name, lowercase or spaced codes, Conditions with
+no ICD-10 code, files with a byte order mark, files of plain unwrapped resources, and the odd
+blank or non-object line.
+
 Fully deterministic for a given seed. No real patient data is involved.
 """
 
@@ -13,7 +18,7 @@ import random
 import uuid
 from pathlib import Path
 
-from fhir_loader.flatten import ICD10_SYSTEM, SNOMED_SYSTEM
+from fhir_loader.flatten import ICD10_OID, ICD10_SYSTEM, ICD10_WHO_SYSTEM, SNOMED_SYSTEM
 from fhir_loader.resource_types import RESOURCE_TYPES
 
 STATES = ["TX", "IL", "CA", "NY", "FL", "OH", "GA", "WA", "AZ", "MI"]
@@ -92,14 +97,37 @@ def make_encounter(rng: random.Random, pid: str) -> dict:
     return r
 
 
+def _messy_code(rng: random.Random, code: str) -> str:
+    x = rng.random()
+    if x < 0.05:
+        return f" {_dotted(code).lower()} "
+    if x < 0.15:
+        return code
+    return _dotted(code)
+
+
+def _icd_coding(rng: random.Random, code: str, display: str) -> dict:
+    x = rng.random()
+    system = ICD10_OID if x < 0.04 else ICD10_WHO_SYSTEM if x < 0.07 else ICD10_SYSTEM
+    return {"system": system, "code": _messy_code(rng, code), "display": display}
+
+
 def make_condition(rng, pid, enc_ids, icd_codes) -> dict:
     r = _base(rng, "Condition", pid)
     if rng.random() < 0.85:
         code, display = rng.choice(icd_codes)
     else:
         code, display = rng.choice(NON_HCC_CODES)
-    coding = [{"system": ICD10_SYSTEM, "code": _dotted(code), "display": display}]
-    if rng.random() < 0.5:
+    coding = [_icd_coding(rng, code, display)]
+    x = rng.random()
+    if x < 0.10:
+        # Two ICD-10 codings on one Condition, for example hypertension plus diabetes.
+        coding.append(_icd_coding(rng, *rng.choice(icd_codes + NON_HCC_CODES)))
+    elif x < 0.13:
+        coding = []  # SNOMED only, no ICD-10 code
+    elif x < 0.14:
+        coding = [{"system": ICD10_SYSTEM, "display": display}]  # ICD-10 system, no code
+    if rng.random() < 0.5 or not coding:
         coding.insert(0, {"system": SNOMED_SYSTEM, "code": str(rng.randint(10**8, 10**9))})
     r.update(
         {
@@ -159,9 +187,16 @@ def generate(out_dir: Path, patients: int, icd_codes: list[tuple[str, str]], see
     paths = []
     for i in range(patients):
         path = out_dir / f"patient_{i:05d}.ndjson"
-        with open(path, "w") as f:
-            for entry in patient_entries(rng, icd_codes):
-                f.write(json.dumps(entry) + "\n")
+        entries = patient_entries(rng, icd_codes)
+        x = rng.random()
+        with open(path, "w", encoding="utf-8") as f:
+            if x < 0.02:
+                f.write("\ufeff")  # byte order mark
+            for entry in entries:
+                # 2% of files are plain NDJSON resources, not bundle entries.
+                f.write(json.dumps(entry["resource"] if 0.02 <= x < 0.04 else entry) + "\n")
+            if 0.04 <= x < 0.05:
+                f.write("\n[]\n")  # a blank line and a non-object line
         paths.append(path)
     return paths
 
