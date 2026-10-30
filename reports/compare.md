@@ -1,0 +1,76 @@
+# Metriport public HCC map vs CMS 2026
+
+Inputs: [`hcc-map.ts` at `e1f26d5`](https://github.com/metriport/metriport/blob/e1f26d504cb9d132d66a7a9607ffb199be759168/packages/core/src/external/fhir/shared/hcc-map.ts) (sha256 `8ddc36082f70`), [CMS 2026 mapping](https://www.cms.gov/files/zip/2026-midyear-final-icd-10-mappings.zip) (sha256 `1143bc102311`), [CMS 2025 mapping](https://www.cms.gov/files/zip/2025-midyear/final-icd-10-mappings.zip-0) (sha256 `3fd8a313d847`). Regenerate with `make compare`.
+
+## Summary
+
+- The public map has 11,184 ICD-10-CM codes.
+- CMS 2026 gives a payable V28 HCC to 8,019 codes.
+- **231 of those codes are not in the public map.** 134 are brand new ICD-10-CM codes for FY2026.
+- Codes that are in the map agree with CMS 2026 on V28: 0 differences.
+- Codes that are in the map agree with CMS 2025 on V24: 0 differences.
+- 2,255 codes in the map carry a V24 HCC and no V28 HCC. Community V24 is not one of the models in the CMS 2026 file.
+- 26 HCC numbers are used by both V24 and V28 in the map. 23 of them share no ICD-10-CM code at all between the two versions, so the number alone does not say which condition group it is.
+
+So the map is accurate for the codes it has. The gap is the newer codes, which a refresh from the 2026 CMS file closes.
+
+## Missing codes by status
+
+| Status | Codes |
+|---|---:|
+| in the CMS 2025 file with a V28 HCC | 97 |
+| new ICD-10-CM code in FY2026 (not in the CMS 2025 file) | 134 |
+
+Most common ICD-10-CM categories among them: L98 (112), F50 (18), C86 (14), C88 (12), C82 (9), C83 (9), C84 (8), G35 (8).
+
+Examples (full list in `missing_v28_codes.csv`):
+
+| Code | Description | V28 HCC 2026 | Status |
+|---|---|---:|---|
+| C50A0 | Malignant inflammatory neoplasm of unspecified breast | 23 | new ICD-10-CM code in FY2026 (not in the CMS 2025 file) |
+| C50A1 | Malignant inflammatory neoplasm of right breast | 23 | new ICD-10-CM code in FY2026 (not in the CMS 2025 file) |
+| C50A2 | Malignant inflammatory neoplasm of left breast | 23 | new ICD-10-CM code in FY2026 (not in the CMS 2025 file) |
+| C810A | Nodular lymphocyte predominant Hodgkin lymphoma, in remission | 21 | in the CMS 2025 file with a V28 HCC |
+| C820A | Follicular lymphoma grade I, in remission | 21 | in the CMS 2025 file with a V28 HCC |
+| C830A | Small cell B-cell lymphoma, in remission | 21 | in the CMS 2025 file with a V28 HCC |
+| C840A | Mycosis fungoides, in remission | 20 | in the CMS 2025 file with a V28 HCC |
+| C851A | Unspecified B-cell lymphoma, in remission | 21 | in the CMS 2025 file with a V28 HCC |
+| C8600 | Extranodal NK/T-cell lymphoma, nasal type not having achieved remission | 20 | in the CMS 2025 file with a V28 HCC |
+| E66813 | Obesity, class 3 | 48 | in the CMS 2025 file with a V28 HCC |
+
+## HCC numbers used by both V24 and V28
+
+Same meaning is judged only from the map itself: `no` means no ICD-10-CM code maps to that number in both versions.
+
+| HCC | V24 codes | V28 codes | Shared | Same meaning | V24 example | V28 example |
+|---:|---:|---:|---:|---|---|---|
+| 1 | 3 | 3 | 3 | yes | B20 Human immunodeficiency virus [HIV] disease | B20 Human immunodeficiency virus [HIV] disease |
+| 2 | 53 | 52 | 51 | partly | A021 Salmonella sepsis | A021 Salmonella sepsis |
+| 6 | 37 | 37 | 37 | yes | A072 Cryptosporidiosis | A072 Cryptosporidiosis |
+| 17 | 23 | 75 | 0 | no | E0800 Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC) | C771 Secondary and unspecified malignant neoplasm of intrathoracic lymph nodes |
+| 18 | 400 | 26 | 0 | no | E0821 Diabetes mellitus due to underlying condition with diabetic nephropathy | C770 Secondary and unspecified malignant neoplasm of lymph nodes of head, face and neck |
+| 19 | 6 | 63 | 0 | no | E089 Diabetes mellitus due to underlying condition without complications | C450 Mesothelioma of pleura |
+| 21 | 11 | 434 | 0 | no | E40 Kwashiorkor | C01 Malignant neoplasm of base of tongue |
+| 22 | 7 | 126 | 0 | no | E6601 Morbid (severe) obesity due to excess calories | C180 Malignant neoplasm of cecum |
+| 23 | 240 | 231 | 0 | no | A391 Waterhouse-Friderichsen syndrome | C430 Malignant melanoma of lip |
+| 35 | 77 | 1 | 0 | no | K5000 Crohn's disease of small intestine without complications | Z9483 Pancreas transplant status |
+| 48 | 72 | 7 | 0 | no | C946 Myelodysplastic disease, not elsewhere classified | E6601 Morbid (severe) obesity due to excess calories |
+| 51 | 67 | 11 | 0 | no | F01511 Vascular dementia, unspecified severity, with agitation | E220 Acromegaly and pituitary gigantism |
+| 77 | 13 | 6 | 0 | no | G35 Multiple sclerosis | T86850 Intestine transplant rejection |
+| 78 | 21 | 76 | 0 | no | G10 Huntington's disease | A5485 Gonococcal peritonitis |
+| 79 | 58 | 2 | 0 | no | G40001 Localization-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset, not intractable, with status epilepticus | K860 Alcohol-induced chronic pancreatitis |
+| 80 | 51 | 28 | 0 | no | G931 Anoxic brain damage, not elsewhere classified | K5000 Crohn's disease of small intestine without complications |
+| 107 | 141 | 14 | 0 | no | I2601 Septic pulmonary embolism with acute cor pulmonale | D5700 Hb-SS disease with crisis, unspecified |
+| 108 | 327 | 39 | 0 | no | E0851 Diabetes mellitus due to underlying condition with diabetic peripheral angiopathy without gangrene | D561 Beta thalassemia |
+| 111 | 17 | 2 | 0 | no | J410 Simple chronic bronchitis | D66 Hereditary factor VIII deficiency |
+| 112 | 81 | 21 | 0 | no | B4481 Allergic bronchopulmonary aspergillosis | D6800 Von Willebrand disease, unspecified |
+| 114 | 16 | 18 | 0 | no | A481 Legionnaires' disease | D810 Severe combined immunodeficiency [SCID] with reticular dysgenesis |
+| 115 | 32 | 16 | 0 | no | A0103 Typhoid pneumonia | D700 Congenital agranulocytosis |
+| 135 | 5 | 97 | 0 | no | N170 Acute kidney failure with tubular necrosis | F11150 Opioid abuse with opioid-induced psychotic disorder with delusions |
+| 136 | 5 | 19 | 0 | no | I120 Hypertensive chronic kidney disease with stage 5 chronic kidney disease or end stage renal disease | F10131 Alcohol abuse with withdrawal delirium |
+| 137 | 1 | 307 | 0 | no | N184 Chronic kidney disease, stage 4 (severe) | F11120 Opioid abuse with intoxication, uncomplicated |
+| 138 | 3 | 14 | 0 | no | N1830 Chronic kidney disease, stage 3 unspecified | F1110 Opioid abuse, uncomplicated |
+
+## Why it matters in 2026
+
+CMS pays non-PACE Medicare Advantage on the 2024 CMS-HCC model (V28) at 100% in 2026. PACE blends 10% V28 with 90% V22, ESRD uses its own models, and Part D uses RxHCC V08. In the public code, Condition normalization adds HCC extensions from this map (`normalization/resources/condition.ts`), so a code that is not in the map gets no HCC extension, and anything built on that extension will not see it. An HCC number without a model label can point at two different condition groups.

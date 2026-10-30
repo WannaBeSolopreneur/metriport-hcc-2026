@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metriport-hcc-2026"
+version = "0.1.0"
+description = "Tested CMS 2026 ICD-10 to HCC crosswalk and a single-pass FHIR loader, shaped for Metriport data"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Asad Moulvi" }]
+requires-python = ">=3.11"
+dependencies = ["duckdb>=1.0", "pyarrow>=15"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools]
+packages = ["crosswalk", "compare", "fhir_loader"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [".cache", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

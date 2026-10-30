@@ -1,0 +1,7 @@
+{
+  "name": "CMS 2026 Midyear/Final ICD-10-CM to HCC mappings",
+  "url": "https://www.cms.gov/files/zip/2026-midyear-final-icd-10-mappings.zip",
+  "sha256": "1143bc102311fa6f9da33ef7c72cb4a34849a4354feb0ef1c745d38c887f23a2",
+  "member": "2026 Final ICD-10-CM Mappings.csv",
+  "origin": "cms.gov download"
+}

@@ -1,0 +1,64 @@
+{
+  "patients": 3000,
+  "seed": 2026,
+  "files": 3000,
+  "resources": 350291,
+  "input_mb": 280.1,
+  "resource_types": 28,
+  "rows": {
+    "Patient": 3000,
+    "Condition": 45154,
+    "Encounter": 37872
+  },
+  "condition_hcc_rows": 155956,
+  "repeats": 3,
+  "results": {
+    "baseline_28_types": {
+      "label": "Baseline, 28 passes per file (Metriport pattern)",
+      "seconds": [
+        46.965640138005256,
+        44.2900019279914,
+        44.52212292900367
+      ],
+      "median": 44.52212292900367
+    },
+    "baseline_3_types": {
+      "label": "Baseline limited to the 3 output types (4 passes per file)",
+      "seconds": [
+        7.444631702004699,
+        7.427884873992298,
+        7.055615057004616
+      ],
+      "median": 7.427884873992298
+    },
+    "single_pass_load": {
+      "label": "Single pass, Parquet out",
+      "seconds": [
+        1.8472609460004605,
+        1.6885988489957526,
+        1.6806900929950643
+      ],
+      "median": 1.6885988489957526
+    },
+    "single_pass_load_join": {
+      "label": "Single pass, Parquet out, plus DuckDB crosswalk join",
+      "seconds": [
+        2.0217864739970537,
+        2.041240172999096,
+        2.071441481995862
+      ],
+      "median": 2.041240172999096
+    }
+  },
+  "speedup_load_vs_baseline": 26.4,
+  "speedup_load_join_vs_baseline": 21.8,
+  "machine": {
+    "os": "Linux-6.12.94+-x86_64-with-glibc2.41",
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "logical_cpus": 8,
+    "memory_gb": 15.6,
+    "python": "3.13.5",
+    "pyarrow": "26.0.0",
+    "duckdb": "2.0.0"
+  }
+}
