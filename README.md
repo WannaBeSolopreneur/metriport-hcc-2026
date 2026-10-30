@@ -1,5 +1,7 @@
 # metriport-hcc-2026
 
+Hi Metriport team, I created this to demonstrate my skills for your Data Engineering position.
+
 A tested 2026 diagnosis code to HCC table, a compare report, and a faster FHIR loader, built for Metriport.
 
 ## About me
@@ -30,15 +32,7 @@ Based on Metriport's public repo and docs as of Oct 30, 2026. If this is already
 - **For 4: a single-pass loader.** It reads each FHIR file once and writes Parquet. On the same 3 tables it is about 4x faster, with the exact same rows.
 - **For trust: tests and a recount.** 42 tests pass. A separate script recounts every number from the CMS files on each build.
 
-```mermaid
-flowchart LR
-    CMS["CMS 2026 HCC file"] --> T["HCC table<br/>(by payment model)"]
-    MAP["Metriport hcc-map.ts"] --> R["Compare report"]
-    T --> R
-    F["FHIR NDJSON files"] --> L["Fast loader"]
-    T --> L
-    L --> P["Conditions + HCCs<br/>(Parquet)"]
-```
+![How it fits together. The CMS 2026 HCC file builds the HCC table, labeled by payment model. The HCC table and Metriport hcc-map.ts feed the compare report. FHIR NDJSON files and the HCC table feed the fast loader, which writes conditions and HCCs to Parquet.](docs/img/flow.png)
 
 ![8,019 codes pay under V28 in 2026. 7,788 are in the map. 231 are missing.](docs/img/coverage.png)
 

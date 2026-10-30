@@ -143,10 +143,76 @@ def benchmark(b: dict) -> Path:
     return _save(fig, "benchmark.png")
 
 
+def flow() -> Path:
+    """Draw the data flow diagram used in the README. Needs no report files."""
+    from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
+
+    w, h = 3.9, 1.35
+    xs = [2.0, 7.0, 12.0]
+    ys = [5.6, 3.3, 1.0]
+    boxes = {
+        "map": (xs[0], ys[0], "Metriport\nhcc-map.ts"),
+        "cms": (xs[0], ys[1], "CMS 2026\nHCC file"),
+        "fhir": (xs[0], ys[2], "FHIR NDJSON\nfiles"),
+        "table": (xs[1], ys[1], "HCC table\n(by payment model)"),
+        "loader": (xs[1], ys[2], "Fast loader"),
+        "report": (xs[2], ys[0], "Compare report"),
+        "parquet": (xs[2], ys[2], "Conditions + HCCs\n(Parquet)"),
+    }
+    fig, ax = plt.subplots(figsize=(14, 7.0))
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 6.6)
+    ax.axis("off")
+    for x, y, label in boxes.values():
+        ax.add_patch(
+            FancyBboxPatch(
+                (x - w / 2, y - h / 2),
+                w,
+                h,
+                boxstyle="round,pad=0.02,rounding_size=0.18",
+                facecolor=BLUE,
+                edgecolor=NAVY,
+                linewidth=2,
+            )
+        )
+        ax.text(x, y, label, ha="center", va="center", fontsize=18, color=NAVY, fontweight="bold")
+
+    def edge(a: str, b: str, side_a: str, side_b: str) -> None:
+        def point(key: str, side: str) -> tuple[float, float]:
+            x, y, _ = boxes[key]
+            return {
+                "r": (x + w / 2, y),
+                "l": (x - w / 2, y),
+                "t": (x, y + h / 2),
+                "b": (x, y - h / 2),
+            }[side]
+
+        ax.add_patch(
+            FancyArrowPatch(
+                point(a, side_a),
+                point(b, side_b),
+                arrowstyle="-|>",
+                mutation_scale=28,
+                linewidth=2.6,
+                color=NAVY,
+                shrinkA=2,
+                shrinkB=4,
+            )
+        )
+
+    edge("map", "report", "r", "l")
+    edge("cms", "table", "r", "l")
+    edge("table", "report", "r", "b")
+    edge("fhir", "loader", "r", "l")
+    edge("table", "loader", "b", "t")
+    edge("loader", "parquet", "r", "l")
+    return _save(fig, "flow.png")
+
+
 def main() -> None:
     c = json.loads((REPORTS / "compare.json").read_text())
     b = json.loads((REPORTS / "benchmark.json").read_text())
-    for path in (coverage(c), missing_by_category(), benchmark(b)):
+    for path in (coverage(c), missing_by_category(), benchmark(b), flow()):
         print(f"charts: wrote {path.relative_to(ROOT)}")
 
 
