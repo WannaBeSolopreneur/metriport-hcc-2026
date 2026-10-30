@@ -3,9 +3,12 @@
 Column names follow the style of Metriport's fhir-to-csv configs (lower case, path joined
 with underscores). Every value is a string or None, like the CSV output.
 
-Patient and Encounter give one row per resource. Condition gives one row per ICD-10 coding,
-like Metriport's config_Condition_code_coding.ini explodes code.coding. A Condition with no
-usable ICD-10 coding still gives one row, with icd10_code empty, so it is never lost.
+Patient and Encounter give one row per resource. Condition gives one row per ICD-10-CM
+coding. SNOMED is kept in a column. A Condition with no usable ICD-10-CM coding still gives
+one row, with icd10_code empty, so it is never lost.
+
+Only ICD-10-CM (the US version) is joined to the HCC table. WHO ICD-10 codings are counted
+and skipped, like Metriport's Condition normalization, which only reads ICD-10-CM.
 """
 
 from __future__ import annotations
@@ -19,23 +22,36 @@ ICD10_WHO_SYSTEM = "http://hl7.org/fhir/sid/icd-10"
 SNOMED_SYSTEM = "http://snomed.info/sct"
 
 # System URIs accepted as ICD-10-CM. Compared after trimming and lower-casing.
-ICD10_SYSTEMS: frozenset[str] = frozenset(
-    s.lower() for s in (ICD10_SYSTEM, ICD10_OID, ICD10_WHO_SYSTEM)
-)
+ICD10_SYSTEMS: frozenset[str] = frozenset(s.lower() for s in (ICD10_SYSTEM, ICD10_OID))
 
-_NOT_CODE_CHARS = re.compile(r"[\s.]")
+_SPACES = re.compile(r"\s+")
+_CODE = re.compile(r"[A-Z][0-9A-Z]{2}(?:\.?[0-9A-Z]{1,4})?")
 
 
 def normalize_icd10(code) -> str | None:
-    """'e11.9 ' -> 'E119'. Returns None when nothing is left."""
+    """'e11.9 ' -> 'E119'. Returns None when the code is not a valid shape.
+
+    Spaces are removed and letters are upper-cased. A dot is allowed only after the third
+    character, so 'E1.19' is rejected instead of turning into 'E119'.
+    """
     if code is None:
         return None
-    out = _NOT_CODE_CHARS.sub("", str(code)).upper()
-    return out or None
+    raw = _SPACES.sub("", str(code)).upper()
+    if not _CODE.fullmatch(raw):
+        return None
+    return raw.replace(".", "")
+
+
+def _system(system) -> str | None:
+    return system.strip().lower() if isinstance(system, str) else None
 
 
 def is_icd10_system(system) -> bool:
-    return isinstance(system, str) and system.strip().lower() in ICD10_SYSTEMS
+    return _system(system) in ICD10_SYSTEMS
+
+
+def is_who_icd10_system(system) -> bool:
+    return _system(system) == ICD10_WHO_SYSTEM
 
 
 def _s(v) -> str | None:
@@ -93,14 +109,18 @@ def patient(r: dict) -> list[dict]:
     ]
 
 
-def icd10_codings(r: dict) -> tuple[list[dict], int]:
-    """ICD-10 codings of a Condition, deduplicated on the normalized code.
+def icd10_codings(r: dict) -> tuple[list[dict], int, int]:
+    """ICD-10-CM codings of a Condition, deduplicated on the normalized code.
 
-    Returns (codings, duplicates dropped). Codings with an ICD-10 system but an empty code
-    are left out here and the Condition then falls back to the one empty row.
+    Returns (codings, duplicates dropped, WHO ICD-10 codings skipped). Codings with an
+    ICD-10-CM system but an empty or invalid code are left out here. The Condition then falls
+    back to the one empty row.
     """
-    out, seen, dups = [], set(), 0
+    out, seen, dups, who = [], set(), 0, 0
     for c in _codings(r.get("code")):
+        if is_who_icd10_system(c.get("system")):
+            who += 1
+            continue
         if not is_icd10_system(c.get("system")):
             continue
         norm = normalize_icd10(c.get("code"))
@@ -111,15 +131,15 @@ def icd10_codings(r: dict) -> tuple[list[dict], int]:
             continue
         seen.add(norm)
         out.append({**c, "_norm": norm})
-    return out, dups
+    return out, dups, who
 
 
 def condition(r: dict) -> list[dict]:
     return condition_rows(r)[0]
 
 
-def condition_rows(r: dict) -> tuple[list[dict], int]:
-    """Rows for one Condition, plus how many duplicate ICD-10 codings were dropped."""
+def condition_rows(r: dict) -> tuple[list[dict], int, int]:
+    """Rows for one Condition, plus duplicate ICD-10-CM codings dropped and WHO codings skipped."""
     sct = _coding(r.get("code"), SNOMED_SYSTEM)
     base = {
         "id": _s(r.get("id")),
@@ -136,9 +156,9 @@ def condition_rows(r: dict) -> tuple[list[dict], int]:
         "onsetdatetime": _s(r.get("onsetDateTime")),
         "recordeddate": _s(r.get("recordedDate")),
     }
-    codings, dups = icd10_codings(r)
+    codings, dups, who = icd10_codings(r)
     if not codings:
-        return [base], dups
+        return [base], dups, who
     rows = [
         {
             **base,
@@ -150,7 +170,7 @@ def condition_rows(r: dict) -> tuple[list[dict], int]:
         }
         for i, c in enumerate(codings)
     ]
-    return rows, dups
+    return rows, dups, who
 
 
 def encounter(r: dict) -> list[dict]:

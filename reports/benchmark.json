@@ -7,47 +7,47 @@
   "resource_types": 28,
   "rows": {
     "Patient": 3000,
-    "Condition": 49802,
+    "Condition": 49286,
     "Encounter": 37476
   },
-  "condition_hcc_rows": 167160,
+  "condition_hcc_rows": 162438,
   "repeats": 3,
   "results": {
     "baseline_28_types": {
       "label": "Baseline, 28 passes per file (Metriport pattern)",
       "seconds": [
-        49.146526764990995,
-        49.200372444989625,
-        50.604276389989536
+        51.32515337699442,
+        49.701730932996725,
+        48.72289504999935
       ],
-      "median": 49.200372444989625
+      "median": 49.701730932996725
     },
     "baseline_3_types": {
       "label": "Baseline limited to the 3 output types (4 passes per file)",
       "seconds": [
-        8.577833999006543,
-        8.512527268001577,
-        8.191629565000767
+        9.39367063199461,
+        8.714520406996598,
+        8.24981782300165
       ],
-      "median": 8.512527268001577
+      "median": 8.714520406996598
     },
     "single_pass_load": {
       "label": "Single pass, Parquet out",
       "seconds": [
-        2.5994745419884566,
-        2.150829115009401,
-        2.1375002990098437
+        2.5054154440003913,
+        2.2182427730003837,
+        2.1660228919936344
       ],
-      "median": 2.150829115009401
+      "median": 2.2182427730003837
     },
     "single_pass_load_join": {
       "label": "Single pass, Parquet out, plus DuckDB crosswalk join",
       "seconds": [
-        2.5281175839918433,
-        2.590766811001231,
-        2.563049784002942
+        2.4322406819992466,
+        2.4230450260074576,
+        2.5022440519969678
       ],
-      "median": 2.563049784002942
+      "median": 2.4322406819992466
     }
   },
   "input_stats": {
@@ -57,24 +57,26 @@
     "blank_lines": 31,
     "bom_lines": 62,
     "bad_json_lines": 0,
+    "bad_utf8_lines": 0,
     "non_object_lines": 31,
     "unwrapped_lines": 6251,
     "entries_without_resource": 0,
     "resources_without_type": 0,
     "rows": {
       "Encounter": 37476,
-      "Condition": 49802,
+      "Condition": 49286,
       "Patient": 3000
     },
     "conditions": 45324,
-    "conditions_without_icd10": 1858,
-    "icd10_codings": 47944,
+    "conditions_without_icd10": 5548,
+    "icd10_codings": 43738,
     "duplicate_icd10_codings": 0,
+    "who_icd10_codings_skipped": 1391,
     "skipped_lines": 62
   },
-  "speedup_load_vs_baseline": 22.9,
-  "speedup_load_vs_baseline_3_types": 4.0,
-  "speedup_load_join_vs_baseline": 19.2,
+  "speedup_load_vs_baseline": 22.4,
+  "speedup_load_vs_baseline_3_types": 3.9,
+  "speedup_load_join_vs_baseline": 20.4,
   "machine": {
     "os": "Linux-6.12.94+-x86_64-with-glibc2.41",
     "cpu": "Intel(R) Xeon(R) Processor",

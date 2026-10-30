@@ -32,7 +32,18 @@ def _codes(rows, cid):
 
 @pytest.mark.parametrize(
     ("raw", "norm"),
-    [("E11.9", "E119"), (" e11.9 ", "E119"), ("C50. A0", "C50A0"), ("i10", "I10"), (" ", None)],
+    [
+        ("E11.9", "E119"),
+        (" e11.9 ", "E119"),
+        ("C50. A0", "C50A0"),
+        ("i10", "I10"),
+        ("E119", "E119"),
+        (" ", None),
+        # A dot is only allowed after the third character.
+        ("E1.19", None),
+        ("E11.9.", None),
+        ("E.119", None),
+    ],
 )
 def test_normalize(raw, norm):
     assert normalize_icd10(raw) == norm
@@ -62,8 +73,9 @@ def test_messy_file_counts(tmp_path):
     assert stats.skipped_lines == 6
     assert stats.unwrapped_lines == 0
     assert stats.conditions == 12
-    # snomed_only, empty_code, no_code, null_coding
-    assert stats.conditions_without_icd10 == 4
+    # snomed_only, empty_code, no_code, null_coding, and who (WHO ICD-10 only)
+    assert stats.conditions_without_icd10 == 5
+    assert stats.who_icd10_codings_skipped == 1
     assert stats.duplicate_icd10_codings == 1
     assert stats.rows == {"Patient": 1, "Condition": 13, "Encounter": 1}
     assert len(rows["Condition"]) == 13
@@ -74,7 +86,8 @@ def test_messy_file_codes(tmp_path):
     assert _codes(rows, "multi") == ["I10", "E119"]
     assert _codes(rows, "snomed_first") == ["E119"]
     assert _codes(rows, "oid") == ["E119"]
-    assert _codes(rows, "who") == ["E119"]
+    # WHO ICD-10 is not ICD-10-CM, so it is counted and skipped, not joined.
+    assert _codes(rows, "who") == [None]
     assert _codes(rows, "lower_space") == ["E119"]
     assert _codes(rows, "inner_space") == ["C50A0"]
     assert _codes(rows, "dup") == ["E119"]
@@ -97,8 +110,9 @@ def test_messy_file_join(tmp_path):
         if r["hcc_model"] == "CMS-HCC-V28"
     }
     # E11.9 maps to V28 HCC 38 whichever way it was written. C50A0 maps to 23.
-    for cid in ("multi", "snomed_first", "oid", "who", "lower_space", "dup", "no_subject"):
+    for cid in ("multi", "snomed_first", "oid", "lower_space", "dup", "no_subject"):
         assert (cid, "38") in v28
+    assert not [h for c, h in v28 if c == "who"]
     assert ("inner_space", "23") in v28
     # I10 on the "multi" Condition has no V28 HCC, so only E11.9 adds one.
     assert [h for c, h in v28 if c == "multi"] == ["38"]
@@ -139,3 +153,24 @@ def test_baseline_agrees_on_messy_input(path, tmp_path):
     _, _, rows = _load(path, tmp_path / "single")
     for t, got in rows.items():
         assert sorted(map(repr, got)) == sorted(map(repr, expected[t]))
+
+
+def test_who_icd10_is_skipped_not_joined():
+    r = {
+        "resourceType": "Condition",
+        "id": "c1",
+        "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "E11.9"}]},
+    }
+    rows = condition(r)
+    assert [x["icd10_code_normalized"] for x in rows] == [None]
+
+
+def test_bad_utf8_line_is_counted(tmp_path):
+    patient = b'{"resource": {"resourceType": "Patient", "id": "p1"}}\n'
+    bad = b'{"resource": {"resourceType": "Patient", "id": "\xff\xfe"}}\n'
+    path = tmp_path / "bad_utf8.ndjson"
+    path.write_bytes(patient + bad + patient.replace(b"p1", b"p2"))
+    stats = LoadStats()
+    single_pass.load([path], tmp_path / "out", stats)
+    assert stats.bad_utf8_lines == 1
+    assert stats.rows == {"Patient": 2}

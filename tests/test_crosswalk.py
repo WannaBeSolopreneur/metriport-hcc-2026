@@ -11,8 +11,11 @@ from crosswalk.build import COLUMNS, MODELS
 from crosswalk.sources import CMS_2026, DATA, fetch, sha256_of
 
 
-def _raw_cms_pairs() -> dict[tuple[str, str], set[str]]:
-    """Independent re-read of the CMS CSV with fixed column positions."""
+def _raw_cms() -> tuple[dict[tuple[str, str], set[str]], set[tuple[str, str]]]:
+    """Independent re-read of the CMS CSV with fixed column positions.
+
+    Returns the paying HCCs per (code, model), and the (code, model) keys CMS marks "No".
+    """
     path, _ = fetch(CMS_2026)
     text = zipfile.ZipFile(path).read(CMS_2026.member).decode("latin-1")
     rows = list(csv.reader(io.StringIO(text)))
@@ -20,6 +23,7 @@ def _raw_cms_pairs() -> dict[tuple[str, str], set[str]]:
     # 5 V28, 6 RxHCC V08, 7 to 11 the matching "for 2026 Payment Year" flags.
     positions = {"ESRD-V21": 2, "ESRD-V24": 3, "CMS-HCC-V22": 4, "CMS-HCC-V28": 5, "RxHCC-V08": 6}
     out: dict[tuple[str, str], set[str]] = defaultdict(set)
+    no: set[tuple[str, str]] = set()
     for r in rows[4:]:
         if len(r) < 12 or not r[1] or not r[0][:1].isalpha():
             continue
@@ -27,7 +31,9 @@ def _raw_cms_pairs() -> dict[tuple[str, str], set[str]]:
             if r[i]:
                 assert r[i + 5] == "Yes"
                 out[(r[0], model)].add(r[i])
-    return out
+            elif r[i + 5] == "No":
+                no.add((r[0], model))
+    return out, no
 
 
 def test_source_is_pinned():
@@ -40,12 +46,22 @@ def test_every_cms_hcc_is_in_crosswalk_and_nothing_else(crosswalk):
     for r in crosswalk:
         if r["payment_flag"]:
             ours[(r["code"], r["hcc_model"])].add(r["hcc_code"])
-    assert ours == _raw_cms_pairs()
+    assert ours == _raw_cms()[0]
+
+
+def test_non_paying_rows_match_cms(crosswalk):
+    # Every (code, model) that CMS marks "No" has one empty row with payment_flag false.
+    ours = {(r["code"], r["hcc_model"]) for r in crosswalk if not r["payment_flag"]}
+    assert ours == _raw_cms()[1]
+    for r in crosswalk:
+        if not r["payment_flag"]:
+            assert r["hcc_code"] is None
 
 
 def test_shape(crosswalk, cms26):
     _, cms_rows = cms26
     assert len(cms_rows) == 11865
+    assert len(crosswalk) == 58084
     assert len({r["code"] for r in crosswalk}) == 11346
     assert {r["hcc_model"] for r in crosswalk} == set(MODELS.values())
     assert all(r["payment_year"] == 2026 for r in crosswalk)

@@ -14,8 +14,10 @@ CACHE = ROOT / ".cache"
 DATA = ROOT / "data"
 REPORTS = ROOT / "reports"
 
-# Local copy used only if the CMS download fails. Override with HCC_FALLBACK_DIR.
-FALLBACK_DIR = Path(os.environ.get("HCC_FALLBACK_DIR", "/workspace/verify"))
+# Optional folder of local copies, used only if a download fails. Set HCC_FALLBACK_DIR to use
+# it. There is no default, so a fresh clone always downloads from the official source.
+_FALLBACK_ENV = os.environ.get("HCC_FALLBACK_DIR")
+FALLBACK_DIR: Path | None = Path(_FALLBACK_ENV) if _FALLBACK_ENV else None
 
 USER_AGENT = "Mozilla/5.0 (metriport-hcc-2026; +https://github.com/WannaBeSolopreneur)"
 
@@ -104,7 +106,7 @@ def fetch(src: Source) -> tuple[Path, str]:
         with urllib.request.urlopen(req, timeout=60) as resp:
             dest.write_bytes(resp.read())
     except Exception as exc:
-        fb = FALLBACK_DIR / src.fallback if src.fallback else None
+        fb = FALLBACK_DIR / src.fallback if FALLBACK_DIR and src.fallback else None
         if fb is None or not fb.exists():
             raise RuntimeError(f"Download failed for {src.url} and no local fallback") from exc
         print(

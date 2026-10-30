@@ -117,7 +117,7 @@ def missing_by_category() -> Path:
 
 def benchmark(b: dict) -> Path:
     order = [
-        ("baseline_28_types", "Baseline, 28 passes per file"),
+        ("baseline_28_types", "Baseline, all 28 types"),
         ("baseline_3_types", "Baseline, same 3 tables (4 passes)"),
         ("single_pass_load", "Single pass"),
         ("single_pass_load_join", "Single pass plus HCC join"),
@@ -137,8 +137,8 @@ def benchmark(b: dict) -> Path:
         "(lower is better)"
     )
     ax.set_title(
-        f"About {b['speedup_load_vs_baseline']:.0f}x faster at reading the files, "
-        f"about {b['speedup_load_vs_baseline_3_types']:.0f}x on the same 3 tables"
+        f"{b['speedup_load_vs_baseline_3_types']:.1f}x faster on the same 3 tables, "
+        f"{b['speedup_load_vs_baseline']:.1f}x against the whole 28-type pattern"
     )
     return _save(fig, "benchmark.png")
 

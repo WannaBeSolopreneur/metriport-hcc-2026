@@ -71,6 +71,13 @@ def timed(fn, repeats: int, out_dir: Path) -> tuple[list[float], object]:
     return times, result
 
 
+def _sorted_rows(rows: list[dict]) -> list[tuple]:
+    """Rows as sorted tuples of (column, value), so order does not matter."""
+    return sorted(
+        tuple(sorted((k, "" if v is None else str(v)) for k, v in r.items())) for r in rows
+    )
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--patients", type=int, default=3000)
@@ -122,14 +129,18 @@ def main() -> None:
         results[key] = {"label": label, "seconds": times, "median": statistics.median(times)}
         print(f"bench: {label}: median {results[key]['median']:.2f}s over {args.repeats} runs")
         if key == "baseline_28_types":
-            baseline_rows = {t: len(r) for t, r in res.items()}
+            baseline = res
 
     single_rows = {
         t: pq.read_metadata(single_dir / f"{t.lower()}.parquet").num_rows for t in TABLES
     }
     hcc_rows = pq.read_metadata(single_dir / "condition_hcc.parquet").num_rows
-    if single_rows != baseline_rows:
-        raise SystemExit(f"row counts differ: {single_rows} vs {baseline_rows}")
+    # Both sides must give exactly the same rows, not just the same number of rows.
+    for t in TABLES:
+        ours = pq.read_table(single_dir / f"{t.lower()}.parquet").to_pylist()
+        if _sorted_rows(ours) != _sorted_rows(baseline[t]):
+            raise SystemExit(f"{t} rows differ between the single pass and the baseline")
+    print(f"bench: row content is identical on all {len(TABLES)} tables")
     stats = LoadStats()
     loader_log.setLevel(logging.WARNING)
     single_pass.load(files, work / "stats", stats)
@@ -161,8 +172,8 @@ def main() -> None:
     (REPORTS / "benchmark.json").write_text(json.dumps(report, indent=2) + "\n")
     (REPORTS / "benchmark.md").write_text(render(report))
     print(
-        f"bench: single pass reads the files {report['speedup_load_vs_baseline']}x faster "
-        f"(28 passes vs 1), {report['speedup_load_vs_baseline_3_types']}x on the same 3 tables"
+        f"bench: {report['speedup_load_vs_baseline_3_types']:.1f}x faster on the same 3 tables, "
+        f"{report['speedup_load_vs_baseline']:.1f}x faster than the whole 28-type pattern"
     )
 
 
@@ -193,17 +204,18 @@ def render(r: dict) -> str:
             "",
             "## In plain words",
             "",
-            f"- The single pass is **about {r['speedup_load_vs_baseline']:.0f}x faster at "
-            f"reading the files** ({r['speedup_load_vs_baseline']}x). It reads each file once. "
-            "The baseline reads it 28 times, once per resource type, plus once for the "
-            "patient id.",
-            f"- A fairer test limits the baseline to the same 3 tables (4 passes per file). "
-            f"Then the single pass is **about {r['speedup_load_vs_baseline_3_types']:.0f}x "
-            f"faster** ({r['speedup_load_vs_baseline_3_types']}x).",
+            f"- **Fair test: {r['speedup_load_vs_baseline_3_types']:.1f}x faster.** The "
+            "baseline is limited to the same 3 tables the single pass builds (4 passes per "
+            "file).",
+            f"- **Whole pattern: {r['speedup_load_vs_baseline']:.1f}x faster.** The baseline "
+            "scans each file once for the patient id, then reads and parses it again for each "
+            "of the 28 resource types. It writes a temp file per type and a CSV per patient. "
+            "The single pass reads and parses each file once and writes Parquet. So this "
+            "number is the whole pattern, not file reading alone.",
             f"- With the DuckDB crosswalk join included, the single pass is "
-            f"{r['speedup_load_join_vs_baseline']}x faster than the 28-pass baseline.",
-            "- Both sides give exactly the same rows. The benchmark stops with an error if "
-            "they do not.",
+            f"{r['speedup_load_join_vs_baseline']:.1f}x faster than the 28-type baseline.",
+            "- Both sides give exactly the same rows. The benchmark compares every row, sorted, "
+            "and stops with an error if they differ.",
             "",
             "## Messy input in this data set",
             "",
@@ -213,10 +225,12 @@ def render(r: dict) -> str:
             f"- {st['conditions_without_icd10']:,} Conditions with no usable ICD-10 code "
             "(kept, with an empty code)",
             f"- {st['icd10_codings']:,} ICD-10 codings in total, "
-            f"{st['duplicate_icd10_codings']:,} duplicates dropped",
+            f"{st['duplicate_icd10_codings']:,} duplicates dropped, "
+            f"{st['who_icd10_codings_skipped']:,} WHO ICD-10 codings skipped for the HCC join",
             f"- {st['unwrapped_lines']:,} plain resource lines, {st['bom_lines']:,} byte "
             f"order marks, {st['blank_lines']:,} blank lines, {st['non_object_lines']:,} "
-            f"non-object lines, {st['bad_json_lines']:,} broken lines",
+            f"non-object lines, {st['bad_json_lines']:,} broken lines, "
+            f"{st['bad_utf8_lines']:,} bad UTF-8 lines",
             "",
             "## Machine",
             "",

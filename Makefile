@@ -4,9 +4,9 @@ PY := $(VENV)/bin/python
 PATIENTS ?= 3000
 REPEATS ?= 3
 
-.PHONY: all install crosswalk compare bench charts demo lint test clean
+.PHONY: all install crosswalk compare verify bench charts demo lint test clean
 
-all: install crosswalk compare bench charts demo lint test
+all: install crosswalk compare verify bench charts demo lint test
 
 $(PY):
 	$(PYTHON) -m venv $(VENV)
@@ -20,6 +20,9 @@ crosswalk:
 
 compare:
 	$(PY) -m compare.run
+
+verify:
+	$(PY) scripts/verify_recount.py
 
 bench:
 	$(PY) -m fhir_loader.benchmark --patients $(PATIENTS) --repeats $(REPEATS)
