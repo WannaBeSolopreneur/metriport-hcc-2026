@@ -52,6 +52,13 @@ def test_added_years(crosswalk, cms25_rows, hcc_map, icd_years):
         assert m["status"].startswith("new") == m["added_to_icd10cm"].startswith("FY2026")
 
 
+def test_parser_fails_on_empty_map():
+    import pytest
+
+    with pytest.raises(ValueError, match="0 entries"):
+        parse_hcc_map("export const hccMap = {\n};\n")
+
+
 def test_stale_codes(crosswalk, cms25_rows, hcc_map, icd_years):
     res = analyze(crosswalk, cms25_rows, hcc_map, icd_years)
     stale = {s["code"]: s for s in res.stale}
@@ -65,6 +72,14 @@ def test_stale_codes(crosswalk, cms25_rows, hcc_map, icd_years):
     assert stale["C860"]["fy2026_codes_under_it"] == "C8600|C8601"
     assert stale["G20"]["removed_from_icd10cm"] == "before FY2025"
     assert res.retired_still_mapped == ["D71", "E7253", "G35"]
+    # The 18 parents split on Oct 1, 2024 have 49 replacement codes, all missing from the map.
+    split25 = [s for s in res.stale if s["removed_from_icd10cm"].startswith("FY2025")]
+    assert len(split25) == 18
+    children = [c for s in split25 for c in s["fy2026_codes_under_it"].split("|")]
+    assert len(children) == 49
+    missing = {m["code"] for m in res.missing}
+    assert set(children) <= missing
+    assert all(c in icd25.added for c in children)
 
 
 def test_report_is_reproducible(crosswalk, cms25_rows, hcc_map, icd_years):

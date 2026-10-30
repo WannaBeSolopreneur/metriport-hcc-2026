@@ -48,11 +48,10 @@ def test_synthetic_data_is_messy(files, tmp_path):
     assert stats.rows["Condition"] > stats.conditions  # some Conditions have two codings
     rows = pq.read_table(tmp_path / "condition.parquet").to_pylist()
     systems = {r["icd10_system"] for r in rows}
-    assert {
-        "http://hl7.org/fhir/sid/icd-10-cm",
-        "urn:oid:2.16.840.1.113883.6.90",
-        "http://hl7.org/fhir/sid/icd-10",
-    } <= systems
+    assert {"http://hl7.org/fhir/sid/icd-10-cm", "urn:oid:2.16.840.1.113883.6.90"} <= systems
+    # WHO ICD-10 codings are in the data, but they are skipped for the HCC join.
+    assert "http://hl7.org/fhir/sid/icd-10" not in systems
+    assert stats.who_icd10_codings_skipped > 0
     raw = [r["icd10_code"] for r in rows if r["icd10_code"]]
     assert any("." in c for c in raw)
     assert any(c != c.strip() or c != c.upper() for c in raw)

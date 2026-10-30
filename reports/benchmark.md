@@ -1,29 +1,29 @@
 # Loader benchmark
 
 Input: 3,000 synthetic patients (seed 2026), one NDJSON file per patient, 349,876 resources across 28 resource types, 279.8 MB.
-Output rows: 3,000 patients, 49,802 condition rows (one per ICD-10 coding) from 45,324 Conditions, 37,476 encounters, 167,160 condition to HCC rows.
+Output rows: 3,000 patients, 49,286 condition rows (one per ICD-10 coding) from 45,324 Conditions, 37,476 encounters, 162,438 condition to HCC rows.
 
 | Approach | Median seconds | All runs |
 |---|---:|---|
-| Baseline, 28 passes per file (Metriport pattern) | 49.20 | 49.15, 49.20, 50.60 |
-| Baseline limited to the 3 output types (4 passes per file) | 8.51 | 8.58, 8.51, 8.19 |
-| Single pass, Parquet out | 2.15 | 2.60, 2.15, 2.14 |
-| Single pass, Parquet out, plus DuckDB crosswalk join | 2.56 | 2.53, 2.59, 2.56 |
+| Baseline, 28 passes per file (Metriport pattern) | 49.70 | 51.33, 49.70, 48.72 |
+| Baseline limited to the 3 output types (4 passes per file) | 8.71 | 9.39, 8.71, 8.25 |
+| Single pass, Parquet out | 2.22 | 2.51, 2.22, 2.17 |
+| Single pass, Parquet out, plus DuckDB crosswalk join | 2.43 | 2.43, 2.42, 2.50 |
 
 ## In plain words
 
-- The single pass is **about 23x faster at reading the files** (22.9x). It reads each file once. The baseline reads it 28 times, once per resource type, plus once for the patient id.
-- A fairer test limits the baseline to the same 3 tables (4 passes per file). Then the single pass is **about 4x faster** (4.0x).
-- With the DuckDB crosswalk join included, the single pass is 19.2x faster than the 28-pass baseline.
-- Both sides give exactly the same rows. The benchmark stops with an error if they do not.
+- **Fair test: 3.9x faster.** The baseline is limited to the same 3 tables the single pass builds (4 passes per file).
+- **Whole pattern: 22.4x faster.** The baseline scans each file once for the patient id, then reads and parses it again for each of the 28 resource types. It writes a temp file per type and a CSV per patient. The single pass reads and parses each file once and writes Parquet. So this number is the whole pattern, not file reading alone.
+- With the DuckDB crosswalk join included, the single pass is 20.4x faster than the 28-type baseline.
+- Both sides give exactly the same rows. The benchmark compares every row, sorted, and stops with an error if they differ.
 
 ## Messy input in this data set
 
 The generator adds a few messy cases on purpose. Both loaders handle them the same way.
 
-- 1,858 Conditions with no usable ICD-10 code (kept, with an empty code)
-- 47,944 ICD-10 codings in total, 0 duplicates dropped
-- 6,251 plain resource lines, 62 byte order marks, 31 blank lines, 31 non-object lines, 0 broken lines
+- 5,548 Conditions with no usable ICD-10 code (kept, with an empty code)
+- 43,738 ICD-10 codings in total, 0 duplicates dropped, 1,391 WHO ICD-10 codings skipped for the HCC join
+- 6,251 plain resource lines, 62 byte order marks, 31 blank lines, 31 non-object lines, 0 broken lines, 0 bad UTF-8 lines
 
 ## Machine
 

@@ -13,7 +13,7 @@ Inputs: [`hcc-map.ts` at `e1f26d5`](https://github.com/metriport/metriport/blob/
 - 2,255 codes in the map carry a V24 HCC and no V28 HCC. Community V24 is not one of the models in the CMS 2026 file.
 - 26 HCC numbers are used by both V24 and V28 in the map. 23 of them share no ICD-10-CM code at all between the two versions, so the number alone does not say which condition group it is.
 
-So the map is accurate for the codes it has. The gap is the newer codes from the Oct 1, 2024 and Oct 1, 2025 code updates, which a refresh from the 2026 CMS file closes.
+So the map matches CMS for the codes CMS still lists, apart from the split parent codes listed below. The main gap is the newer codes from the Oct 1, 2024 and Oct 1, 2025 code updates, which a refresh from the 2026 CMS file closes.
 
 ## Missing codes by status
 

@@ -69,6 +69,20 @@ def _added(code: str, icd25: CodeYear, icd26: CodeYear) -> str:
     return "before FY2025"
 
 
+def _replacement_codes(parent: str, icd25: CodeYear, icd26: CodeYear) -> list[str]:
+    """FY2026 codes that replaced a parent code.
+
+    When the parent was deleted in the FY2025 addenda, only codes added in that same addenda
+    count. This uses the official add and delete lists, not just a shared prefix. For parents
+    removed before FY2025 there is no addenda file here, so valid FY2026 codes under the
+    parent are listed.
+    """
+    under = {k for k in icd26.codes if k.startswith(parent) and k != parent}
+    if parent in icd25.deleted:
+        under &= icd25.added
+    return sorted(under)
+
+
 def _by_code(rows: list[dict], column: str) -> dict[str, set[int]]:
     out: dict[str, set[int]] = defaultdict(set)
     for r in rows:
@@ -128,7 +142,7 @@ def analyze(
     for c, e in sorted(hcc_map.items()):
         if not e.v28 or c in display or c in icd25.codes or c in icd26.codes:
             continue
-        children = sorted(k for k in icd26.codes if k.startswith(c) and k != c)
+        children = _replacement_codes(c, icd25, icd26)
         stale.append(
             {
                 "code": c,
@@ -235,7 +249,8 @@ def render_markdown(res: Result) -> str:
         f"{len(no_shared)} of them share no ICD-10-CM code at all between the two versions, "
         "so the number alone does not say which condition group it is.",
         "",
-        "So the map is accurate for the codes it has. The gap is the newer codes from the "
+        "So the map matches CMS for the codes CMS still lists, apart from the split parent "
+        "codes listed below. The main gap is the newer codes from the "
         "Oct 1, 2024 and Oct 1, 2025 code updates, which a refresh from the 2026 CMS file "
         "closes.",
         "",

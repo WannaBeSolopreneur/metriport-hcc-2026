@@ -38,4 +38,7 @@ def parse_hcc_map(source: str) -> dict[str, MapEntry]:
     keys = re.findall(r'^\s{2}"?([A-Z][0-9A-Z]+)"?\s*:', body, re.M)
     if len(keys) != len(out):
         raise ValueError(f"parsed {len(out)} entries but found {len(keys)} keys")
+    # If the file shape changes, both counts can be 0. Then every code would look missing.
+    if not out:
+        raise ValueError("parsed 0 entries from hcc-map.ts. The file format may have changed")
     return out

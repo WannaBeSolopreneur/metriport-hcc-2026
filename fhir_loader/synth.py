@@ -2,7 +2,8 @@
 ({"fullUrl", "resource"}) per line, covering all 28 resource types the fhir-to-csv step handles.
 
 A small share of the data is messy on purpose, the way real feeds are: Conditions with two
-ICD-10 codings, the OID or WHO ICD-10 system name, lowercase or spaced codes, Conditions with
+ICD-10 codings, the OID system name, the WHO ICD-10 system name (skipped for the HCC join),
+lowercase or spaced codes, Conditions with
 no ICD-10 code, files with a byte order mark, files of plain unwrapped resources, and the odd
 blank or non-object line.
 
