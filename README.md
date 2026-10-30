@@ -1,32 +1,52 @@
 # metriport-hcc-2026
 
-A tested 2026 table that links each diagnosis code (ICD-10-CM) to its Medicare risk group (HCC) in every 2026 payment model.
-It is built for Metriport's FHIR data and warehouse, and it comes with a faster FHIR file loader.
+A tested 2026 diagnosis code to HCC table, a compare report, and a faster FHIR loader, built for Metriport.
 
-## Key results
+## About me
 
-- **231 codes are missing.** These codes pay under V28, the model CMS uses for most Medicare Advantage plans in 2026. But they are not in Metriport's public map (`hcc-map.ts`). **134** of them are brand new codes from Oct 1, 2025.
-- **The rest of the map holds up.** Codes still in the CMS 2026 file match on V28. Codes in the CMS 2025 file match on V24. 22 older parent codes are left over from code splits.
-- **23 HCC numbers mean different things.** HCC 19 in V24 is mostly diabetes without complications, plus Z79.4 (long-term insulin use). In V28, HCC 19 is a cancer group.
-- **About 4x faster loading.** On the same 3 tables, the loader is 3.9x faster than the current pattern. Against the whole pattern (28 passes, temp files and CSVs vs one pass to Parquet) it is 22.4x faster. This is synthetic data on one machine.
-- **58,084 rows checked.** Every row matches the official CMS 2026 file. 42 tests pass.
+I am Asad Moulvi, a Data Scientist at DataQHealth.
 
-![8,019 codes pay under V28 in 2026. 7,788 are in the map. 231 are missing.](docs/img/coverage.png)
+- I build healthcare data pipelines for claims, encounters and patient attribution, over 10M records a year.
+- I automated CMS data collection and ACO doctor selection. Our ACO was approved in under 3 months.
+- I built a FHIR-compliant AI scribe for doctors, and an AI tool that sums up heart device alerts. It saves nurses 3 hours a day.
+
+MS Business Analytics and AI (UT Dallas). BSc Physics (University of Nottingham).
+[LinkedIn](https://www.linkedin.com/in/asad-moulvi-aaa278175) · [GitHub](https://github.com/WannaBeSolopreneur) · asad.moulvi01@gmail.com
+
+## What I noticed in Metriport's public repo
+
+1. **Some 2026 codes are not in the map yet.** [`hcc-map.ts`](https://github.com/metriport/metriport/blob/e1f26d504cb9d132d66a7a9607ffb199be759168/packages/core/src/external/fhir/shared/hcc-map.ts) does not include 231 ICD-10 codes that pay under V28 in 2026. 134 of them are new codes from Oct 1, 2025.
+2. **Some old codes were split.** 22 older parent codes are still mapped after CMS split them into more specific codes.
+3. **The HCC model is not labeled.** The same HCC number can mean different things in V24 and V28. HCC 19 is diabetes in V24 but a cancer group in V28. [`hcc-extension.ts`](https://github.com/metriport/metriport/blob/e1f26d504cb9d132d66a7a9607ffb199be759168/packages/core/src/external/fhir/shared/extensions/hcc-extension.ts) lists V24 before V28, and the warehouse `hcc_code` column has no model label.
+4. **Files are read many times.** [`parseNdjsonBundle.py`](https://github.com/metriport/metriport/blob/e1f26d504cb9d132d66a7a9607ffb199be759168/packages/data-transformation/fhir-to-csv/src/parseNdjsonBundle/parseNdjsonBundle.py) reads each file once per resource type. That is 28 passes.
+
+Based on Metriport's public repo and docs as of Oct 30, 2026. If this is already fixed internally, this is a tested table to check against.
+
+## What I built
+
+- **For 1 and 2: a CMS 2026 HCC table.** Each code is labeled by payment model (V28, PACE V22, ESRD V24, RxHCC V08). All 58,084 rows are checked against the official CMS file.
+- **For 1 and 2: a compare report.** It lists every missing code and every split parent code in `hcc-map.ts`.
+- **For 3: a model label on every row.** You can always tell a V24 HCC from a V28 HCC.
+- **For 4: a single-pass loader.** It reads each FHIR file once and writes Parquet. On the same 3 tables it is about 4x faster, with the exact same rows.
+- **For trust: tests and a recount.** 42 tests pass. A separate script recounts every number from the CMS files on each build.
 
 ```mermaid
 flowchart LR
-    A[CMS 2026 file] --> B[(HCC table)]
-    C[FHIR files] --> D[Fast loader]
-    B --> E[Patient HCCs]
-    D --> E
-    B --> F[Report on hcc-map.ts]
+    CMS["CMS 2026 HCC file"] --> T["HCC table<br/>(by payment model)"]
+    MAP["Metriport hcc-map.ts"] --> R["Compare report"]
+    T --> R
+    F["FHIR NDJSON files"] --> L["Fast loader"]
+    T --> L
+    L --> P["Conditions + HCCs<br/>(Parquet)"]
 ```
 
-## How Metriport could use this
+![8,019 codes pay under V28 in 2026. 7,788 are in the map. 231 are missing.](docs/img/coverage.png)
 
-- **A lookup table.** Join it on the ICD-10 code. In this table `code` is the ICD-10-CM code and `hcc_code` is the HCC. In `condition_extension_vcc_coding`, `code` is the HCC number. So map the columns, do not load it as is.
-- **A model label.** Adding the model next to `condition.hcc_code` would show which payment model each HCC belongs to.
-- **A yearly check.** The report could run against each new CMS file. The loader idea could also be tried in the fhir-to-csv step (`parseNdjsonBundle.py`).
+## How it can help Metriport
+
+- **A lookup table.** Join it on the ICD-10 code to fill the 231 gaps.
+- **A model label.** Store the model next to `hcc_code` so V24 and V28 never mix.
+- **A yearly check.** Run the report on each new CMS file to catch new codes early.
 
 ## Quick start
 
@@ -36,24 +56,11 @@ You need Python 3.11 or newer, `make`, and internet access.
 make all
 ```
 
-This builds the table, runs the report, recounts the numbers with a separate script, runs the speed test and runs all tests. It takes about 4 minutes.
+This builds the table, runs the report, recounts the numbers, runs the speed test and runs all tests. It takes about 4 minutes.
 
 More detail, including the speed table, the checks and the limits, is in [docs/DETAILS.md](docs/DETAILS.md).
 
-## About me
-
-I am Asad Moulvi, a Data Scientist at DataQHealth (since June 2025, before that a Data Analyst).
-
-- **CMS data.** I automated CMS data collection and ACO doctor selection. Our ACO was approved in under 3 months.
-- **Pipelines and FHIR.** I build healthcare pipelines for claims, encounters and patient attribution, over 10M records a year. I also built a FHIR-based AI scribe for doctors.
-- **Clinical tools.** I built an AI tool that sums up heart device alerts. It saves nurses 3 hours a day.
-
-MS in Business Analytics and AI (UT Dallas). BSc Physics (University of Nottingham).
-[LinkedIn](https://www.linkedin.com/in/asad-moulvi-aaa278175) · [GitHub](https://github.com/WannaBeSolopreneur) · asad.moulvi01@gmail.com
-
 ---
-
-Based on Metriport's public repo and docs as of Oct 30, 2026. If this is already fixed internally, this is a tested CMS 2026 table to check against.
 
 **Credits:** HCC mappings and ICD-10 code lists from [CMS](https://www.cms.gov/medicare/payment/medicare-advantage-rates-statistics/risk-adjustment/2026-model-software-icd-10-mappings). All patient data is synthetic.
 
